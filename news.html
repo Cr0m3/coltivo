@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - Container Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid var(--accent);
+            animation: fadeIn 0.6s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .news-date {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .news-card h3 {
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .news-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: var(--accent);
+            color: white;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        .badge.feature {
+            background: var(--primary);
+        }
+
+        .badge.bugfix {
+            background: #ffc107;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">🚀 Container Pro</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="news.html" class="active">News</a></li>
+                <li><a href="calculator.html">Preiscalculator</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="video.html">Video</a></li>
+                <li><a href="about.html">Über uns</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- NEWS SECTION -->
+    <div class="container">
+        <h2 class="section-title">📰 Neueste Updates</h2>
+
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-date">15. März 2026</div>
+                <h3>Mobile App verfügbar</h3>
+                <p>Verwalte deine Container jetzt auch unterwegs mit unserer neuen mobilen Anwendung. Verfügbar für iOS
+                    und Android. Push-Benachrichtigungen für Liefertage und Abholungen.</p>
+                <span class="badge feature">Feature</span>
+            </div>
+
+            <div class="news-card">
+                <div class="news-date">12. März 2026</div>
+                <h3>Performance Optimierungen</h3>
+                <p>Die Plattform lädt jetzt 40% schneller. Wir haben den Backend-Code optimiert und CDN-Caching
+                    hinzugefügt. Dein Dashboard ist jetzt blitzschnell.</p>
+                <span class="badge bugfix">Fix</span>
+            </div>
+
+            <div class="news-card">
+                <div class="news-date">10. März 2026</div>
+                <h3>API für Partner verfügbar</h3>
+                <p>Entwickler können jetzt unsere REST API nutzen um Container-Verwaltung in ihre Systeme zu
+                    integrieren. Vollständige Dokumentation verfügbar.</p>
+                <span class="badge feature">Feature</span>
+            </div>
+
+            <div class="news-card">
+                <div class="news-date">8. März 2026</div>
+                <h3>Dashboard Dark Mode</h3>
+                <p>Neue Dark Mode Option für das Dashboard. Schont die Augen bei Nachtarbeit und spart Batterie auf
+                    mobilen Geräten. Ein Klick zum Aktivieren.</p>
+                <span class="badge feature">Feature</span>
+            </div>
+
+            <div class="news-card">
+                <div class="news-date">5. März 2026</div>
+                <h3>Bug Fixes und Verbesserungen</h3>
+                <p>Behoben: Fehler bei Bulk-Operationen, Kalender-Synchronisation verbessert, UI-Responsivität
+                    optimiert. Detaillierte Changelog in unserem Blog.</p>
+                <span class="badge bugfix">Fix</span>
+            </div>
+
+            <div class="news-card">
+                <div class="news-date">1. März 2026</div>
+                <h3>Neue Integrationen</h3>
+                <p>Container Pro verbindet sich jetzt mit Google Calendar, Slack und Microsoft Teams für bessere
+                    Zusammenarbeit. Automatische Benachrichtigungen für dein Team.</p>
+                <span class="badge feature">Feature</span>
+            </div>
+
+            <div class="news-card">
+                <div class="news-date">25. Februar 2026</div>
+                <h3>Mehrsprachige Unterstützung</h3>
+                <p>Container Pro unterstützt jetzt 8 Sprachen: Deutsch, Englisch, Französisch, Italienisch, Spanisch,
+                    Niederländisch, Polnisch und Russisch.</p>
+                <span class="badge feature">Feature</span>
+            </div>
+
+            <div class="news-card">
+                <div class="news-date">20. Februar 2026</div>
+                <h3>Sicherheits-Update</h3>
+                <p>Erhöhte Sicherheit mit 2FA-Authentifizierung und verschlüsselten Datenübertragungen. Deine Daten sind
+                    jetzt noch besser geschützt.</p>
+                <span class="badge bugfix">Sicherheit</span>
+            </div>
+
+            <div class="news-card">
+                <div class="news-date">15. Februar 2026</div>
+                <h3>Neue Zahlungsmethoden</h3>
+                <p>Wir akzeptieren jetzt PayPal, Apple Pay, Google Pay und Kryptowährungen. Flexible Zahlungsoptionen
+                    für deine Bequemlichkeit.</p>
+                <span class="badge feature">Feature</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Container Pro. Alle Rechte vorbehalten. | <a href="#">Impressum</a> | <a href="#">Datenschutz</a>
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

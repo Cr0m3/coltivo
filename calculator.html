@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preiscalculator - Container Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .calc-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .calc-result {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 30px;
+            display: none;
+            animation: slideIn 0.3s ease;
+        }
+
+        .calc-result.show {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .calc-result h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .calc-price {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .calc-result p {
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .breakdown {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .breakdown-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .breakdown-row:last-child {
+            margin-bottom: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            padding-top: 10px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid var(--secondary);
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            color: #0d47a1;
+        }
+
+        .info-box strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">🚀 Container Pro</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="calculator.html" class="active">Preiscalculator</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="video.html">Video</a></li>
+                <li><a href="about.html">Über uns</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- CALCULATOR SECTION -->
+    <div class="container">
+        <h2 class="section-title">💰 Preiscalculator</h2>
+
+        <div class="calc-container">
+            <div class="info-box">
+                <strong>💡 Wie funktioniert es?</strong>
+                Wähle Größe, Inhalt und Dauer aus. Der Preis wird automatisch berechnet.
+            </div>
+
+            <form onsubmit="calculatePrice(event)">
+                <div class="form-group">
+                    <label for="containerSize">Container Größe</label>
+                    <select id="containerSize" required onchange="updatePrice()">
+                        <option value="">-- Wähle eine Größe --</option>
+                        <option value="5">5 m³ - €50/Monat</option>
+                        <option value="10">10 m³ - €85/Monat</option>
+                        <option value="20">20 m³ - €140/Monat</option>
+                        <option value="40">40 m³ - €220/Monat</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="containerType">Art des Inhalts</label>
+                    <select id="containerType" required onchange="updatePrice()">
+                        <option value="">-- Wähle eine Art --</option>
+                        <option value="0">Papier/Karton</option>
+                        <option value="30">Altkleider (+€30)</option>
+                        <option value="50">Bauschutt (+€50)</option>
+                        <option value="40">Sperrmüll (+€40)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="duration">Mietdauer (Monate)</label>
+                    <input type="number" id="duration" min="1" max="36" value="1" required onchange="updatePrice()">
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%; text-align: center;">Preis berechnen</button>
+            </form>
+
+            <div id="result" class="calc-result">
+                <h3>Gesamtpreis für deine Lösung:</h3>
+                <div class="calc-price" id="totalPrice">€0</div>
+
+                <div class="breakdown">
+                    <div class="breakdown-row">
+                        <span>Monatlicher Grundpreis:</span>
+                        <span id="basePrice">€0</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span>Zusatztarif für Inhalt:</span>
+                        <span id="typePrice">€0</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span>Anzahl Monate:</span>
+                        <span id="durationDisplay">0</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span>Gesamt:</span>
+                        <span id="totalPriceBreakdown">€0</span>
+                    </div>
+                </div>
+
+                <p style="margin-top: 20px;">✅ Inklusive Lieferung und Abholung</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Container Pro. Alle Rechte vorbehalten. | <a href="#">Impressum</a> | <a href="#">Datenschutz</a>
+        </p>
+    </footer>
+
+    <script>
+        function updatePrice() {
+            const size = document.getElementById('containerSize').value;
+            const type = document.getElementById('containerType').value;
+            const duration = document.getElementById('duration').value;
+
+            if (size && type !== null && duration) {
+                const basePrices = {
+                    '5': 50,
+                    '10': 85,
+                    '20': 140,
+                    '40': 220
+                };
+
+                const basePrice = basePrices[size] || 0;
+                const typePrice = parseInt(type) || 0;
+                const monthlyTotal = basePrice + typePrice;
+                const total = monthlyTotal * duration;
+
+                document.getElementById('result').classList.add('show');
+                document.getElementById('totalPrice').innerText = '€' + total.toLocaleString('de-DE');
+                document.getElementById('basePrice').innerText = '€' + basePrice.toLocaleString('de-DE');
+                document.getElementById('typePrice').innerText = '€' + typePrice.toLocaleString('de-DE');
+                document.getElementById('durationDisplay').innerText = duration;
+                document.getElementById('totalPriceBreakdown').innerText = '€' + total.toLocaleString('de-DE');
+            }
+        }
+
+        function calculatePrice(event) {
+            event.preventDefault();
+            updatePrice();
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

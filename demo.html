@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo anfordern - Container Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .demo-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .demo-container h2 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .demo-container .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .success-message {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 20px;
+            border-radius: 4px;
+            text-align: center;
+            display: none;
+            margin-top: 20px;
+            animation: slideIn 0.3s ease;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-message h3 {
+            margin-bottom: 10px;
+            color: #155724;
+        }
+
+        .required-field {
+            color: var(--accent);
+        }
+
+        .form-group.two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-group.two-columns .form-group {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 600px) {
+            .form-group.two-columns {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">🚀 Container Pro</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="calculator.html">Preiscalculator</a></li>
+                <li><a href="demo.html" class="active">Demo</a></li>
+                <li><a href="video.html">Video</a></li>
+                <li><a href="about.html">Über uns</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- DEMO SECTION -->
+    <div class="container">
+        <h2 class="section-title">📝 Demo-Account anfordern</h2>
+
+        <div class="demo-container">
+            <h2>Teste Container Pro kostenlos</h2>
+            <p class="subtitle">Du erhältst sofort Zugang. Keine Kreditkarte erforderlich.</p>
+
+            <form onsubmit="submitDemo(event)">
+                <div class="form-group">
+                    <label for="demoName">Name <span class="required-field">*</span></label>
+                    <input type="text" id="demoName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="demoEmail">E-Mail <span class="required-field">*</span></label>
+                    <input type="email" id="demoEmail" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="demoCompany">Unternehmen <span class="required-field">*</span></label>
+                    <input type="text" id="demoCompany" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="demoPhone">Telefon <span class="required-field">*</span></label>
+                    <input type="tel" id="demoPhone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="demoMessage">Nachricht (optional)</label>
+                    <textarea id="demoMessage" rows="4"
+                        placeholder="Erzähle uns mehr über deine Anforderungen..."></textarea>
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%; text-align: center;">Demo-Account
+                    erstellen</button>
+            </form>
+
+            <div id="successMessage" class="success-message">
+                <h3>✅ Vielen Dank!</h3>
+                <p>Dein Demo-Account wird in Kürze erstellt. Überprüfe deine E-Mail für die Zugangsdaten.</p>
+                <p style="margin-top: 15px; font-size: 12px;">Unser Support-Team kontaktiert dich auch in Kürze.</p>
+            </div>
+
+            <div id="errorMessage" class="success-message"
+                style="background: #f8d7da; border-color: #f5c6cb; color: #721c24; display: none;">
+                <h3>⚠️ Fehler beim Absenden</h3>
+                <p>Bitte überprüfe deine Eingaben und versuche es erneut.</p>
+            </div>
+        </div>
+
+        <!-- BENEFITS SECTION -->
+        <div style="margin-top: 60px;">
+            <h3 style="text-align: center; color: var(--primary); margin-bottom: 40px;">Was bekommst du mit deinem
+                Demo-Account?</h3>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto;">
+                <div style="text-align: center;">
+                    <div style="font-size: 48px; margin-bottom: 15px;">📊</div>
+                    <h4 style="color: var(--primary); margin-bottom: 10px;">Dashboard</h4>
+                    <p style="color: #666; font-size: 14px;">Vollzugriff auf dein persönliches Dashboard mit allen
+                        Funktionen.</p>
+                </div>
+
+                <div style="text-align: center;">
+                    <div style="font-size: 48px; margin-bottom: 15px;">🆓</div>
+                    <h4 style="color: var(--primary); margin-bottom: 10px;">Kostenlos testen</h4>
+                    <p style="color: #666; font-size: 14px;">30 Tage kostenloser Zugriff. Keine Kreditkarte
+                        erforderlich.</p>
+                </div>
+
+                <div style="text-align: center;">
+                    <div style="font-size: 48px; margin-bottom: 15px;">🎓</div>
+                    <h4 style="color: var(--primary); margin-bottom: 10px;">Training & Support</h4>
+                    <p style="color: #666; font-size: 14px;">Persönliches Onboarding und Support während deiner
+                        Test-Phase.</p>
+                </div>
+
+                <div style="text-align: center;">
+                    <div style="font-size: 48px; margin-bottom: 15px;">📱</div>
+                    <h4 style="color: var(--primary); margin-bottom: 10px;">Mobile App</h4>
+                    <p style="color: #666; font-size: 14px;">Zugriff auf unsere iOS und Android App mit vollem Umfang.
+                    </p>
+                </div>
+
+                <div style="text-align: center;">
+                    <div style="font-size: 48px; margin-bottom: 15px;">⚙️</div>
+                    <h4 style="color: var(--primary); margin-bottom: 10px;">Alle Features</h4>
+                    <p style="color: #666; font-size: 14px;">Alle bezahlten Features sind im Demo-Zeitraum enthalten.
+                    </p>
+                </div>
+
+                <div style="text-align: center;">
+                    <div style="font-size: 48px; margin-bottom: 15px;">🔒</div>
+                    <h4 style="color: var(--primary); margin-bottom: 10px;">Datensicherheit</h4>
+                    <p style="color: #666; font-size: 14px;">Deine Daten sind verschlüsselt und sicher. DSGVO-konform.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Container Pro. Alle Rechte vorbehalten. | <a href="#">Impressum</a> | <a href="#">Datenschutz</a>
+        </p>
+    </footer>
+
+    <script>
+        function submitDemo(event) {
+            event.preventDefault();
+
+            const formData = {
+                name: document.getElementById('demoName').value,
+                email: document.getElementById('demoEmail').value,
+                company: document.getElementById('demoCompany').value,
+                phone: document.getElementById('demoPhone').value,
+                message: document.getElementById('demoMessage').value,
+                timestamp: new Date().toISOString()
+            };
+
+            // In echter Anwendung würde das an einen Server gesendet
+            console.log('Demo-Anfrage:', formData);
+
+            // Reset form
+            event.target.reset();
+
+            // Hide error message if shown
+            document.getElementById('errorMessage').classList.remove('show');
+
+            // Show success message
+            document.getElementById('successMessage').classList.add('show');
+
+            // Scroll to success message
+            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+            // Hide success message after 8 seconds
+            setTimeout(() => {
+                document.getElementById('successMessage').classList.remove('show');
+            }, 8000);
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

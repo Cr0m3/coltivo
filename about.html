@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über uns - Container Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .about-hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .about-hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        .team-section {
+            margin-top: 50px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .member-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+
+        .team-member h3 {
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .team-member .role {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .team-member p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--accent);
+        }
+
+        .value-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .value-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .stats {
+            background: var(--light);
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item h2 {
+            font-size: 48px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            color: #666;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 50px auto;
+        }
+
+        .timeline-item {
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent);
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid white;
+        }
+
+        .timeline-item h4 {
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .timeline-item .year {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .timeline-item p {
+            color: #666;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">🚀 Container Pro</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="calculator.html">Preiscalculator</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="video.html">Video</a></li>
+                <li><a href="about.html" class="active">Über uns</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ABOUT HERO -->
+    <div class="about-hero">
+        <h1>Unsere Mission</h1>
+        <p>Container Pro macht Entsorgung einfach, transparent und nachhaltig. Wir helfen Unternehmen, ihre
+            Abfallwirtschaft zu optimieren — schnell, zuverlässig und zu fairen Preisen.</p>
+    </div>
+
+    <!-- STORY SECTION -->
+    <div class="container">
+        <h2 class="section-title">Unsere Geschichte</h2>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="year">2022</div>
+                <h4>Der Anfang</h4>
+                <p>Container Pro wurde gegründet, weil wir sahen, dass die Abfallwirtschaft zu kompliziert war. Ein
+                    kleines Team mit großer Vision.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="year">2023</div>
+                <h4>Erste Kunden</h4>
+                <p>Nach 6 Monaten hatten wir die erste Version live. Die ersten 5 Kunden vertrauten uns. Ihre Feedback
+                    war Gold wert.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="year">2024</div>
+                <h4>Skalierung</h4>
+                <p>Wir erreichten 50+ Kunden und 10.000+ verwaltete Container. Die Plattform wurde zur Standardlösung in
+                    der Branche.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="year">2025</div>
+                <h4>Globale Expansion</h4>
+                <p>Container Pro ist jetzt in 6 Ländern verfügbar. Mehrsprachiger Support, lokale Server, internationale
+                    Standards.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="year">2026</div>
+                <h4>Version 2.0</h4>
+                <p>Komplette Überarbeitung mit AI-Optimierung, Mobile App und neuer UI. Noch besser, noch schneller,
+                    noch intelligenter.</p>
+            </div>
+        </div>
+
+        <!-- VALUES SECTION -->
+        <h2 class="section-title" style="margin-top: 60px;">Unsere Werte</h2>
+
+        <div class="values-grid">
+            <div class="value-card">
+                <h3>🌍 Nachhaltigkeit</h3>
+                <p>Wir glauben an verantwortungsvolle Entsorgung. Jeder Container wird optimal recycelt und unsere
+                    Prozesse sind CO2-neutral.</p>
+            </div>
+
+            <div class="value-card">
+                <h3>💡 Innovation</h3>
+                <p>Technologie sollte Probleme lösen. Deshalb investieren wir in AI, Automatisierung und bessere User
+                    Experience.</p>
+            </div>
+
+            <div class="value-card">
+                <h3>🤝 Kundenorientierung</h3>
+                <p>Du kommst zuerst. Dein Feedback formt unsere Roadmap. Support 24/7 ist nicht optional — es ist
+                    Standard.</p>
+            </div>
+
+            <div class="value-card">
+                <h3>🔒 Transparenz</h3>
+                <p>Keine versteckten Gebühren, keine Überraschungen. Jeder Preis ist fair und nachvollziehbar von Anfang
+                    an.</p>
+            </div>
+
+            <div class="value-card">
+                <h3>⚡ Geschwindigkeit</h3>
+                <p>Zeit ist kostbar. Container in 24-48 Stunden, Antworte innerhalb von 2 Stunden. Schnell ist unser
+                    Standard.</p>
+            </div>
+
+            <div class="value-card">
+                <h3>📊 Datengetrieben</h3>
+                <p>Entscheidungen basieren auf Daten. Unsere Analytics helfen dir, bessere Entscheidungen zu treffen.
+                </p>
+            </div>
+        </div>
+
+        <!-- STATS SECTION -->
+        <div class="stats">
+            <h2 class="section-title" style="margin-bottom: 50px;">Zahlen, die sprechen</h2>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h2>50+</h2>
+                    <p>Kunden</p>
+                </div>
+
+                <div class="stat-item">
+                    <h2>10k+</h2>
+                    <p>Container</p>
+                </div>
+
+                <div class="stat-item">
+                    <h2>99,9%</h2>
+                    <p>Verfügbarkeit</p>
+                </div>
+
+                <div class="stat-item">
+                    <h2>24/7</h2>
+                    <p>Support</p>
+                </div>
+
+                <div class="stat-item">
+                    <h2>6</h2>
+                    <p>Länder</p>
+                </div>
+
+                <div class="stat-item">
+                    <h2>4.9★</h2>
+                    <p>Bewertung</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEAM SECTION -->
+        <h2 class="section-title" style="margin-top: 60px;">Unser Team</h2>
+
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-avatar">👨‍💼</div>
+                <h3>Max Mueller</h3>
+                <div class="role">CEO & Founder</div>
+                <p>Ehemaliger Logistik-Manager. Sah das Problem und baute die Lösung. Passioniert für Effizienz.</p>
+            </div>
+
+            <div class="team-member">
+                <div class="member-avatar">👩‍💻</div>
+                <h3>Sarah Schmidt</h3>
+                <div class="role">CTO & Co-Founder</div>
+                <p>Full-Stack Developer mit 10+ Jahren Erfahrung. Liebt gutes Code-Design und Skalierbarkeit.</p>
+            </div>
+
+            <div class="team-member">
+                <div class="member-avatar">👨‍🎨</div>
+                <h3>Tom Weber</h3>
+                <div class="role">Design Lead</div>
+                <p>UI/UX Designer. Glaubt, dass schönes Design mit großartiger Funktionalität einhergehen muss.</p>
+            </div>
+
+            <div class="team-member">
+                <div class="member-avatar">👩‍🔬</div>
+                <h3>Lisa Johnson</h3>
+                <div class="role">Product Manager</div>
+                <p>Strateg mit Blick für Details. Setzt Kundenneeds in Features um. Data-driven Mindset.</p>
+            </div>
+
+            <div class="team-member">
+                <div class="member-avatar">👨‍🚀</div>
+                <h3>Peter Klein</h3>
+                <div class="role">Operations Manager</div>
+                <p>Meister der Logistik und Prozessoptimierung. Macht alles am Laufen.</p>
+            </div>
+
+            <div class="team-member">
+                <div class="member-avatar">👩‍⚕️</div>
+                <h3>Anna Fischer</h3>
+                <div class="role">Customer Success</div>
+                <p>Deine erste Anlaufstelle. Kümmert sich um Onboarding und dass du mit Container Pro erfolgreich bist.
+                </p>
+            </div>
+        </div>
+
+        <!-- CTA SECTION -->
+        <div
+            style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 60px 20px; border-radius: 8px; text-align: center; margin-top: 60px;">
+            <h2 style="font-size: 36px; margin-bottom: 20px;">Bereit, mit uns zu wachsen?</h2>
+            <p style="font-size: 18px; margin-bottom: 30px;">Trete Container Pro bei und optimiere deine
+                Abfallwirtschaft heute.</p>
+            <a href="demo.html" class="btn">Kostenlos testen</a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Container Pro. Alle Rechte vorbehalten. | <a href="#">Impressum</a> | <a href="#">Datenschutz</a>
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
