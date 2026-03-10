@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontakt - Container Pro</title>
+    <title>Kontakt - Coltivo</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         .contact-grid {
@@ -32,11 +31,11 @@
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border-left: 4px solid var(--accent);
+            border-left: 4px solid #ff9800;
         }
 
         .info-box h3 {
-            color: var(--primary);
+            color: #0d47a1;
             margin-bottom: 15px;
             display: flex;
             align-items: center;
@@ -49,30 +48,13 @@
         }
 
         .info-box a {
-            color: var(--accent);
+            color: #ff9800;
             text-decoration: none;
             font-weight: 600;
         }
 
         .info-box a:hover {
             text-decoration: underline;
-        }
-
-        .office-item {
-            background: var(--light);
-            padding: 20px;
-            border-radius: 6px;
-            margin-top: 15px;
-        }
-
-        .office-item h4 {
-            color: var(--dark);
-            margin-bottom: 8px;
-        }
-
-        .office-item p {
-            font-size: 14px;
-            color: #666;
         }
 
         .success-message {
@@ -88,66 +70,11 @@
 
         .success-message.show {
             display: block;
-            animation: slideIn 0.3s ease;
         }
 
-        .error-message {
-            background: #f8d7da;
-            border: 1px solid #f5c6cb;
-            color: #721c24;
-            padding: 20px;
-            border-radius: 4px;
-            display: none;
-            margin-bottom: 20px;
-        }
-
-        .error-message.show {
-            display: block;
-        }
-
-        .faq-section {
-            background: var(--light);
-            padding: 40px 20px;
-            margin-top: 60px;
-        }
-
-        .faq-item {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .faq-item h4 {
-            color: var(--dark);
-            margin-bottom: 10px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-        }
-
-        .faq-item h4::after {
-            content: '▼';
-            font-size: 12px;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item h4.open::after {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            color: #666;
-            line-height: 1.6;
-            display: none;
-            margin-top: 10px;
-        }
-
-        .faq-answer.show {
-            display: block;
+        .contact-form h3 {
+            color: #0d47a1;
+            margin-bottom: 30px;
         }
 
         @media (max-width: 768px) {
@@ -165,19 +92,18 @@
         }
     </style>
 </head>
-
 <body>
     <!-- NAVIGATION -->
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo">🚀 Container Pro</a>
+            <a href="index.html" class="logo">📦 Coltivo</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="news.html">News</a></li>
-                <li><a href="calculator.html">Preiscalculator</a></li>
+                <li><a href="calculator.html">Pricing</a></li>
                 <li><a href="demo.html">Demo</a></li>
-                <li><a href="video.html">Video</a></li>
-                <li><a href="about.html">Über uns</a></li>
+                <li><a href="video.html">Tutorial</a></li>
+                <li><a href="about.html">Über mich</a></li>
                 <li><a href="contact.html" class="active">Kontakt</a></li>
             </ul>
         </div>
@@ -185,56 +111,49 @@
 
     <!-- CONTACT SECTION -->
     <div class="container">
-        <h2 class="section-title">📞 Kontaktiere uns</h2>
+        <h2 class="section-title">📞 Kontakt</h2>
         <p style="text-align: center; color: #666; max-width: 700px; margin: 0 auto 40px; font-size: 16px;">
-            Hast du Fragen? Kontaktiere unser Team. Wir sind 24/7 für dich da und antworten innerhalb von 2 Stunden.
+            Fragen? Feedback? Feature-Request? Ich antworte persönlich auf jede Nachricht. Es gibt kein Support-Ticket-System - direkt zu mir.
         </p>
 
         <div class="contact-grid">
             <!-- CONTACT FORM -->
             <div>
                 <div id="successMessage" class="success-message">
-                    <h4>✅ Vielen Dank!</h4>
-                    <p>Wir haben deine Nachricht erhalten. Unser Team kontaktiert dich in Kürze.</p>
-                </div>
-
-                <div id="errorMessage" class="error-message">
-                    <h4>⚠️ Fehler beim Absenden</h4>
-                    <p>Bitte überprüfe deine Eingaben und versuche es erneut.</p>
+                    <h4>✅ Danke für deine Nachricht!</h4>
+                    <p>Ich lese jede E-Mail persönlich und antworte so schnell wie möglich. Normalerweise innerhalb von 24 Stunden.</p>
                 </div>
 
                 <div class="contact-form">
-                    <h3 style="color: var(--primary); margin-bottom: 30px;">Sende uns eine Nachricht</h3>
-
-                    <form onsubmit="submitContact(event)">
+                    <h3>Schreib mir</h3>
+                    
+                    <form onsubmit="submitContact(event)" action="https://formspree.io/f/xvgeepro" method="POST">
                         <div class="form-group">
-                            <label for="contactName">Name *</label>
-                            <input type="text" id="contactName" required>
+                            <label for="contactName">Dein Name *</label>
+                            <input type="text" id="contactName" name="name" required>
                         </div>
 
                         <div class="form-group">
                             <label for="contactEmail">E-Mail *</label>
-                            <input type="email" id="contactEmail" required>
+                            <input type="email" id="contactEmail" name="email" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="contactCompany">Unternehmen</label>
-                            <input type="text" id="contactCompany">
+                            <label for="contactCompany">Unternehmen (optional)</label>
+                            <input type="text" id="contactCompany" name="company">
                         </div>
 
                         <div class="form-group">
                             <label for="contactSubject">Betreff *</label>
-                            <input type="text" id="contactSubject" required>
+                            <input type="text" id="contactSubject" name="subject" required placeholder="z.B. Feature Request, Bug Report, etc.">
                         </div>
 
                         <div class="form-group">
                             <label for="contactMessage">Nachricht *</label>
-                            <textarea id="contactMessage" rows="6" required
-                                placeholder="Erzähle uns, wie wir dir helfen können..."></textarea>
+                            <textarea id="contactMessage" name="message" rows="6" required placeholder="Lass mich wissen wie ich dir helfen kann..."></textarea>
                         </div>
 
-                        <button type="submit" class="btn" style="width: 100%; text-align: center;">Nachricht
-                            senden</button>
+                        <button type="submit" class="btn" style="width: 100%; text-align: center;">Senden</button>
                     </form>
                 </div>
             </div>
@@ -244,193 +163,78 @@
                 <div class="info-box">
                     <h3>📧 E-Mail</h3>
                     <p>
-                        <a href="mailto:hello@containerpro.de">hello@containerpro.de</a><br>
-                        Für technische Fragen: <a href="mailto:support@containerpro.de">support@containerpro.de</a><br>
-                        Vertrieb: <a href="mailto:sales@containerpro.de">sales@containerpro.de</a>
+                        <strong>Support & Allgemein:</strong><br>
+                        <a href="mailto:hello@coltivo.de">hello@coltivo.de</a><br><br>
+                        <strong>Sales & Business:</strong><br>
+                        <a href="mailto:sales@coltivo.de">sales@coltivo.de</a><br><br>
+                        <strong>Technisch:</strong><br>
+                        <a href="mailto:dev@coltivo.de">dev@coltivo.de</a>
                     </p>
                 </div>
 
                 <div class="info-box">
-                    <h3>📞 Telefon</h3>
+                    <h3>📍 Standort</h3>
                     <p>
-                        <strong>Hauptzentrale:</strong> <a href="tel:+49123456789">+49 (0) 123 456789</a><br>
-                        <strong>Support:</strong> <a href="tel:+49987654321">+49 (0) 987 654321</a><br>
-                        <strong>Montag - Freitag:</strong> 8:00 - 18:00 Uhr
+                        <strong>Coltivo</strong><br>
+                        Berlin, Deutschland 🇩🇪<br><br>
+                        Made in Germany. Mit Liebe zu Details.
                     </p>
                 </div>
 
                 <div class="info-box">
-                    <h3>🏢 Büros</h3>
-
-                    <div class="office-item">
-                        <h4>🇩🇪 Deutschland (Hauptsitz)</h4>
-                        <p>
-                            Container Pro GmbH<br>
-                            Hauptstraße 123<br>
-                            10115 Berlin<br>
-                            Deutschland
-                        </p>
-                    </div>
-
-                    <div class="office-item">
-                        <h4>🇦🇹 Österreich</h4>
-                        <p>
-                            Container Pro Austria<br>
-                            Stephansplatz 5<br>
-                            1010 Wien<br>
-                            Österreich
-                        </p>
-                    </div>
-
-                    <div class="office-item">
-                        <h4>🇨🇭 Schweiz</h4>
-                        <p>
-                            Container Pro Switzerland<br>
-                            Bahnhofstrasse 10<br>
-                            8001 Zürich<br>
-                            Schweiz
-                        </p>
-                    </div>
-                </div>
-
-                <div class="info-box">
-                    <h3>🕒 Support-Zeiten</h3>
+                    <h3>⏰ Verfügbarkeit</h3>
                     <p>
-                        <strong>Live Chat:</strong> 24/7 verfügbar<br>
-                        <strong>E-Mail:</strong> Antwort innerhalb von 2 Stunden<br>
-                        <strong>Telefon:</strong> Mo-Fr 8:00-18:00 Uhr<br>
-                        <strong>Im Notfall:</strong> +49 (0) 999 888 777
+                        <strong>E-Mail Support:</strong><br>
+                        Mo-Fr: 9:00 - 18:00 CET<br>
+                        Sa-So: Emails werden gelesen, Antworte am Montag<br><br>
+                        <strong>Notfall:</strong><br>
+                        Support für deine Web App auf <a href="https://app.coltivo.de" target="_blank">app.coltivo.de</a>
                     </p>
                 </div>
 
                 <div class="info-box">
-                    <h3>🔗 Folge uns</h3>
+                    <h3>🔗 Social & Links</h3>
                     <p>
-                        <a href="https://linkedin.com" target="_blank">LinkedIn</a> |
-                        <a href="https://twitter.com" target="_blank">Twitter</a> |
-                        <a href="https://github.com" target="_blank">GitHub</a> |
-                        <a href="https://instagram.com" target="_blank">Instagram</a>
+                        <a href="https://github.com/cr0m3" target="_blank">GitHub</a> | 
+                        <a href="https://twitter.com/coltivo_de" target="_blank">Twitter</a> | 
+                        <a href="https://linkedin.com" target="_blank">LinkedIn</a><br><br>
+                        <strong>Bug Report</strong><br>
+                        Bugs direkt auf <a href="https://github.com/coltivo/issues" target="_blank">GitHub Issues</a> posten
                     </p>
                 </div>
             </div>
         </div>
 
-        <!-- FAQ SECTION -->
-        <div class="faq-section">
-            <div style="max-width: 900px; margin: 0 auto;">
-                <h2 class="section-title">❓ Häufig gestellte Fragen</h2>
-
-                <div class="faq-item">
-                    <h4 onclick="toggleFaq(this)">Wie lange dauert die Onboarding?</h4>
-                    <div class="faq-answer">
-                        Onboarding dauert normalerweise 30-60 Minuten. Unser Team führt dich durch alle Schritte. Nach
-                        nur einer Stunde bist du produktiv und kannst Container verwalten.
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <h4 onclick="toggleFaq(this)">Welche Zahlungsmethoden akzeptiert ihr?</h4>
-                    <div class="faq-answer">
-                        Wir akzeptieren Kreditkarten (Visa, Mastercard, Amex), PayPal, Apple Pay, Google Pay und
-                        Kryptowährungen. Wähle die Methode, die dir passt.
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <h4 onclick="toggleFaq(this)">Kann ich mein Abo jederzeit kündigen?</h4>
-                    <div class="faq-answer">
-                        Ja! Dein Abo läuft monatlich. Du kannst es jederzeit mit einer Frist von 14 Tagen kündigen.
-                        Keine versteckten Bedingungen.
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <h4 onclick="toggleFaq(this)">Ist Container Pro DSGVO-konform?</h4>
-                    <div class="faq-answer">
-                        Ja! Wir sind 100% DSGVO-konform. Alle Daten werden verschlüsselt in deutschen Rechenzentren
-                        gespeichert. Wir haben Zertifikate für ISO 27001 und SOC 2 Compliance.
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <h4 onclick="toggleFaq(this)">Gibt es einen Volumendiscount?</h4>
-                    <div class="faq-answer">
-                        Ja! Ab 100 Containern pro Monat bieten wir spezielle Unternehmenskonditionen. Kontaktiere unser
-                        Sales-Team für ein maßgeschneidertes Angebot.
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <h4 onclick="toggleFaq(this)">Wie sicher ist mein Account?</h4>
-                    <div class="faq-answer">
-                        Sehr sicher! Wir verwenden SSL/TLS-Verschlüsselung, 2-Faktor-Authentifizierung und Biometric
-                        Login. Dein Account ist geschützt vor Brute-Force-Attacken und anderen Sicherheitsrisiken.
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <h4 onclick="toggleFaq(this)">Kann ich mehrere Teams verwalten?</h4>
-                    <div class="faq-answer">
-                        Ja! Mit unserem "Team Management" Feature kannst du unbegrenzt viele Benutzer einladen und
-                        granulare Zugriffsrechte vergeben. Perfekt für größere Organisationen.
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <h4 onclick="toggleFaq(this)">Gibt es eine API?</h4>
-                    <div class="faq-answer">
-                        Ja! Unsere REST API ist vollständig dokumentiert und kostenlos für alle Premium-Abos. Du kannst
-                        Container-Management in deine bestehenden Systeme integrieren.
-                    </div>
-                </div>
-            </div>
+        <!-- LEGAL -->
+        <div style="margin-top: 80px; padding: 40px; background: #f5f5f5; border-radius: 8px; text-align: center;">
+            <h3 style="color: #0d47a1; margin-bottom: 15px;">Rechtliche Informationen</h3>
+            <p style="color: #666; margin-bottom: 15px;">
+                <strong>Impressum:</strong> Lübos Novy | Berlin, Deutschland<br>
+                <strong>USt-ID:</strong> [wird aktualisiert]<br>
+                <strong>Datenschutz:</strong> <a href="#" style="color: #ff9800;">Datenschutzerklärung</a>
+            </p>
         </div>
     </div>
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Container Pro. Alle Rechte vorbehalten. | <a href="#">Impressum</a> | <a href="#">Datenschutz</a>
-        </p>
+        <p>&copy; 2026 Coltivo. Alle Rechte vorbehalten. | <a href="#">Impressum</a> | <a href="#">Datenschutz</a></p>
     </footer>
 
     <script>
         function submitContact(event) {
-            event.preventDefault();
-
-            const formData = {
-                name: document.getElementById('contactName').value,
-                email: document.getElementById('contactEmail').value,
-                company: document.getElementById('contactCompany').value,
-                subject: document.getElementById('contactSubject').value,
-                message: document.getElementById('contactMessage').value,
-                timestamp: new Date().toISOString()
-            };
-
-            console.log('Kontakt-Anfrage:', formData);
-
-            // Reset form
-            event.target.reset();
-
-            // Hide error message
-            document.getElementById('errorMessage').classList.remove('show');
-
-            // Show success message
-            document.getElementById('successMessage').classList.add('show');
-            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
-            // Hide success message after 6 seconds
+            // Formspree handhabt das Formular
+            // Diese Funktion zeigt die Success-Message
             setTimeout(() => {
-                document.getElementById('successMessage').classList.remove('show');
-            }, 6000);
-        }
-
-        function toggleFaq(element) {
-            const answer = element.nextElementSibling;
-            answer.classList.toggle('show');
-            element.classList.toggle('open');
+                document.getElementById('successMessage').classList.add('show');
+                event.target.reset();
+                
+                setTimeout(() => {
+                    document.getElementById('successMessage').classList.remove('show');
+                }, 5000);
+            }, 100);
         }
     </script>
     <script src="script.js"></script>
 </body>
-
 </html>
