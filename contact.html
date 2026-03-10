@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -92,6 +93,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- NAVIGATION -->
     <nav>
@@ -113,7 +115,8 @@
     <div class="container">
         <h2 class="section-title">📞 Kontakt</h2>
         <p style="text-align: center; color: #666; max-width: 700px; margin: 0 auto 40px; font-size: 16px;">
-            Fragen? Feedback? Feature-Request? Ich antworte persönlich auf jede Nachricht. Es gibt kein Support-Ticket-System - direkt zu mir.
+            Fragen? Feedback? Feature-Request? Ich antworte persönlich auf jede Nachricht. Es gibt kein
+            Support-Ticket-System - direkt zu mir.
         </p>
 
         <div class="contact-grid">
@@ -121,12 +124,13 @@
             <div>
                 <div id="successMessage" class="success-message">
                     <h4>✅ Danke für deine Nachricht!</h4>
-                    <p>Ich lese jede E-Mail persönlich und antworte so schnell wie möglich. Normalerweise innerhalb von 24 Stunden.</p>
+                    <p>Ich lese jede E-Mail persönlich und antworte so schnell wie möglich. Normalerweise innerhalb von
+                        24 Stunden.</p>
                 </div>
 
                 <div class="contact-form">
                     <h3>Schreib mir</h3>
-                    
+
                     <form onsubmit="submitContact(event)" action="https://formspree.io/f/xvgeepro" method="POST">
                         <div class="form-group">
                             <label for="contactName">Dein Name *</label>
@@ -145,12 +149,14 @@
 
                         <div class="form-group">
                             <label for="contactSubject">Betreff *</label>
-                            <input type="text" id="contactSubject" name="subject" required placeholder="z.B. Feature Request, Bug Report, etc.">
+                            <input type="text" id="contactSubject" name="subject" required
+                                placeholder="z.B. Feature Request, Bug Report, etc.">
                         </div>
 
                         <div class="form-group">
                             <label for="contactMessage">Nachricht *</label>
-                            <textarea id="contactMessage" name="message" rows="6" required placeholder="Lass mich wissen wie ich dir helfen kann..."></textarea>
+                            <textarea id="contactMessage" name="message" rows="6" required
+                                placeholder="Lass mich wissen wie ich dir helfen kann..."></textarea>
                         </div>
 
                         <button type="submit" class="btn" style="width: 100%; text-align: center;">Senden</button>
@@ -164,11 +170,9 @@
                     <h3>📧 E-Mail</h3>
                     <p>
                         <strong>Support & Allgemein:</strong><br>
-                        <a href="mailto:hello@coltivo.de">hello@coltivo.de</a><br><br>
-                        <strong>Sales & Business:</strong><br>
-                        <a href="mailto:sales@coltivo.de">sales@coltivo.de</a><br><br>
-                        <strong>Technisch:</strong><br>
-                        <a href="mailto:dev@coltivo.de">dev@coltivo.de</a>
+                        <a href="mailto:info@coltivo.de">hello@coltivo.de</a><br><br>
+                        <strong>Support:</strong><br>
+                        <a href="mailto:support@coltivo.de">support@coltivo.de</a><br><br>
                     </p>
                 </div>
 
@@ -176,7 +180,7 @@
                     <h3>📍 Standort</h3>
                     <p>
                         <strong>Coltivo</strong><br>
-                        Berlin, Deutschland 🇩🇪<br><br>
+                        Augsburg, Deutschland 🇩🇪<br><br>
                         Made in Germany. Mit Liebe zu Details.
                     </p>
                 </div>
@@ -188,18 +192,20 @@
                         Mo-Fr: 9:00 - 18:00 CET<br>
                         Sa-So: Emails werden gelesen, Antworte am Montag<br><br>
                         <strong>Notfall:</strong><br>
-                        Support für deine Web App auf <a href="https://app.coltivo.de" target="_blank">app.coltivo.de</a>
+                        Support für deine Web App auf <a href="https://app.coltivo.de"
+                            target="_blank">app.coltivo.de</a>
                     </p>
                 </div>
 
                 <div class="info-box">
                     <h3>🔗 Social & Links</h3>
                     <p>
-                        <a href="https://github.com/cr0m3" target="_blank">GitHub</a> | 
-                        <a href="https://twitter.com/coltivo_de" target="_blank">Twitter</a> | 
+                        <a href="https://github.com/cr0m3" target="_blank">GitHub</a> |
+                        <a href="https://twitter.com/coltivo_de" target="_blank">Twitter</a> |
                         <a href="https://linkedin.com" target="_blank">LinkedIn</a><br><br>
                         <strong>Bug Report</strong><br>
-                        Bugs direkt auf <a href="https://github.com/coltivo/issues" target="_blank">GitHub Issues</a> posten
+                        Bugs direkt auf <a href="https://github.com/coltivo/issues" target="_blank">GitHub Issues</a>
+                        posten
                     </p>
                 </div>
             </div>
@@ -209,7 +215,7 @@
         <div style="margin-top: 80px; padding: 40px; background: #f5f5f5; border-radius: 8px; text-align: center;">
             <h3 style="color: #0d47a1; margin-bottom: 15px;">Rechtliche Informationen</h3>
             <p style="color: #666; margin-bottom: 15px;">
-                <strong>Impressum:</strong> Lübos Novy | Berlin, Deutschland<br>
+                <strong>Impressum:</strong> Lubos Novy | Augsburg, Deutschland<br>
                 <strong>USt-ID:</strong> [wird aktualisiert]<br>
                 <strong>Datenschutz:</strong> <a href="#" style="color: #ff9800;">Datenschutzerklärung</a>
             </p>
@@ -228,7 +234,7 @@
             setTimeout(() => {
                 document.getElementById('successMessage').classList.add('show');
                 event.target.reset();
-                
+
                 setTimeout(() => {
                     document.getElementById('successMessage').classList.remove('show');
                 }, 5000);
@@ -237,4 +243,5 @@
     </script>
     <script src="script.js"></script>
 </body>
+
 </html>
