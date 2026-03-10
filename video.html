@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Tutorial - Container Pro</title>
+    <title>Video Tutorial - Coltivo</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         .video-container {
@@ -39,7 +38,7 @@
         }
 
         .video-info h2 {
-            color: var(--primary);
+            color: #0d47a1;
             margin-bottom: 15px;
             font-size: 28px;
         }
@@ -65,14 +64,14 @@
         }
 
         .video-steps {
-            background: var(--light);
+            background: #f5f5f5;
             padding: 20px;
             border-radius: 4px;
             margin-top: 20px;
         }
 
         .video-steps h3 {
-            color: var(--dark);
+            color: #0d47a1;
             margin-bottom: 15px;
             font-size: 18px;
         }
@@ -87,90 +86,64 @@
             line-height: 1.6;
         }
 
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+        .faq-section {
+            background: #f5f5f5;
+            padding: 40px 20px;
+            margin-top: 60px;
         }
 
-        .video-card {
+        .faq-item {
             background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .video-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
-
-        .video-card-thumb {
-            width: 100%;
-            height: 150px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-        }
-
-        .video-card-content {
             padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
-        .video-card h4 {
-            color: var(--dark);
-            margin-bottom: 8px;
-            font-size: 16px;
-        }
-
-        .video-card p {
-            color: #666;
-            font-size: 13px;
-            line-height: 1.5;
-        }
-
-        .duration {
-            color: var(--accent);
+        .faq-item h4 {
+            color: #0d47a1;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-weight: 600;
-            font-size: 12px;
-            margin-top: 12px;
         }
 
-        @media (max-width: 768px) {
-            .video-info {
-                padding: 25px;
-            }
+        .faq-item h4::after {
+            content: '▼';
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
 
-            .video-meta {
-                flex-direction: column;
-                gap: 10px;
-            }
+        .faq-item h4.open::after {
+            transform: rotate(180deg);
+        }
 
-            .video-info h2 {
-                font-size: 22px;
-            }
+        .faq-answer {
+            color: #666;
+            line-height: 1.6;
+            display: none;
+            margin-top: 10px;
+        }
+
+        .faq-answer.show {
+            display: block;
         }
     </style>
 </head>
-
 <body>
     <!-- NAVIGATION -->
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo">🚀 Container Pro</a>
+            <a href="index.html" class="logo">📦 Coltivo</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="news.html">News</a></li>
-                <li><a href="calculator.html">Preiscalculator</a></li>
+                <li><a href="calculator.html">Pricing</a></li>
                 <li><a href="demo.html">Demo</a></li>
-                <li><a href="video.html" class="active">Video</a></li>
-                <li><a href="about.html">Über uns</a></li>
+                <li><a href="video.html" class="active">Tutorial</a></li>
+                <li><a href="about.html">Über mich</a></li>
                 <li><a href="contact.html">Kontakt</a></li>
             </ul>
         </div>
@@ -178,192 +151,91 @@
 
     <!-- VIDEO SECTION -->
     <div class="container">
-        <h2 class="section-title">🎥 So funktioniert's</h2>
-
+        <h2 class="section-title">🎥 So funktioniert Coltivo</h2>
+        
         <div class="video-container">
             <div class="video-player">
-                <!-- YouTube Video Beispiel - ersetze VIDEO_ID mit deiner echten ID -->
-                <!-- Beispiel: https://www.youtube.com/watch?v=dQw4w9WgXcQ -->
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen="true"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                <!-- Placeholder Video - ersetze mit deiner YouTube ID -->
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen="true" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
             </div>
-
+            
             <div class="video-info">
-                <h2>Container Pro in 5 Minuten erklärt</h2>
-
+                <h2>Coltivo in 5 Minuten erklärt</h2>
+                
                 <div class="video-meta">
                     <span>📺 5:23 Minuten</span>
-                    <span>👁️ 2.345 Aufrufe</span>
-                    <span>⭐ 4.9/5 (189 Bewertungen)</span>
+                    <span>🇩🇪 Deutsch</span>
+                    <span>⭐ Für Anfänger</span>
                 </div>
 
-                <p>In diesem Video zeigen wir dir, wie du mit Container Pro schnell und einfach deine
-                    Entsorgungslösungen verwaltest. Du lernst, wie du neue Container anmeldest, Preise kalkulierst und
-                    deine Abholtermine organisierst. Perfekt für Anfänger und erfahrene Nutzer.</p>
-
-                <p>Folge unserem Onboarding-Prozess und entdecke alle Features, die dir Zeit und Geld sparen werden.</p>
+                <p>In diesem Video zeigen wir dir Schritt-für-Schritt, wie Coltivo funktioniert. Von der Anmeldung bis zur ersten Routen-Optimierung.</p>
 
                 <div class="video-steps">
-                    <h3>📋 Was du in diesem Video lernst:</h3>
+                    <h3>📋 Das Video deckt folgende Punkte ab:</h3>
                     <ol>
-                        <li><strong>Dashboard verstehen</strong> - Überblick über alle deine aktiven Container und deren
-                            Status</li>
-                        <li><strong>Neue Container hinzufügen</strong> - In nur 2 Minuten einen Container anmelden und
-                            aktivieren</li>
-                        <li><strong>Preise berechnen</strong> - Transparente Kalkulation deiner Kosten mit unserem
-                            eingebauten Rechner</li>
-                        <li><strong>Abholtermine planen</strong> - Automatische Planung oder manuelle Buchung je nach
-                            Bedarf</li>
-                        <li><strong>Berichte exportieren</strong> - Dokumentation für deine Buchhaltung und Archivierung
-                        </li>
-                        <li><strong>Mobile App nutzen</strong> - Container auch unterwegs verwalten mit
-                            Push-Benachrichtigungen</li>
+                        <li><strong>Dashboard verstehen</strong> - Überblick über alle deine Container in Echtzeit</li>
+                        <li><strong>Container hinzufügen</strong> - Neue Container registrieren in 2 Minuten</li>
+                        <li><strong>Team-Management</strong> - Fahrer und Team-Mitglieder hinzufügen</li>
+                        <li><strong>Route-Optimierung</strong> - Wie die AI die besten Routen findet</li>
+                        <li><strong>Reports & Analytics</strong> - Daten verstehen und exportieren</li>
                     </ol>
                 </div>
             </div>
         </div>
 
-        <!-- WEITERE VIDEOS -->
-        <h3 style="margin-top: 60px; margin-bottom: 30px; color: var(--primary); text-align: center;">Weitere hilfreiche
-            Videos</h3>
-
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="video-card-thumb">📱</div>
-                <div class="video-card-content">
-                    <h4>Mobile App installieren</h4>
-                    <p>Schritt-für-Schritt Anleitung zur Installation der Container Pro App auf iPhone und Android.</p>
-                    <div class="duration">⏱️ 3:45</div>
-                </div>
-            </div>
-
-            <div class="video-card">
-                <div class="video-card-thumb">💳</div>
-                <div class="video-card-content">
-                    <h4>Bezahlung & Abos</h4>
-                    <p>Alles über Zahlungsmethoden, Abonnements und wie du dein Abo verwaltest.</p>
-                    <div class="duration">⏱️ 4:12</div>
-                </div>
-            </div>
-
-            <div class="video-card">
-                <div class="video-card-thumb">🔐</div>
-                <div class="video-card-content">
-                    <h4>Sicherheit & Datenschutz</h4>
-                    <p>Erfahre, wie wir deine Daten schützen und wie du dein Konto sicher hältst.</p>
-                    <div class="duration">⏱️ 2:56</div>
-                </div>
-            </div>
-
-            <div class="video-card">
-                <div class="video-card-thumb">📊</div>
-                <div class="video-card-content">
-                    <h4>Reports & Analytics</h4>
-                    <p>Erstelle detaillierte Berichte und analysiere deine Entsorgungskosten.</p>
-                    <div class="duration">⏱️ 5:30</div>
-                </div>
-            </div>
-
-            <div class="video-card">
-                <div class="video-card-thumb">🔗</div>
-                <div class="video-card-content">
-                    <h4>API Integration</h4>
-                    <p>Für Entwickler: Integriere Container Pro in deine bestehenden Systeme.</p>
-                    <div class="duration">⏱️ 7:15</div>
-                </div>
-            </div>
-
-            <div class="video-card">
-                <div class="video-card-thumb">❓</div>
-                <div class="video-card-content">
-                    <h4>FAQ & Troubleshooting</h4>
-                    <p>Antworten auf häufig gestellte Fragen und Lösungen für häufige Probleme.</p>
-                    <div class="duration">⏱️ 6:20</div>
-                </div>
-            </div>
-        </div>
-
         <!-- FAQ SECTION -->
-        <div style="max-width: 900px; margin: 60px auto 0;">
-            <h3 style="color: var(--primary); margin-bottom: 30px; text-align: center;">❓ Häufig gestellte Fragen</h3>
+        <div class="faq-section">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <h2 class="section-title">❓ Häufige Fragen</h2>
 
-            <style>
-                .faq-item {
-                    background: white;
-                    padding: 20px;
-                    border-radius: 8px;
-                    margin-bottom: 15px;
-                    border-left: 4px solid var(--primary);
-                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-                }
+                <div class="faq-item">
+                    <h4 onclick="toggleFaq(this)">Muss ich einen Videokurs machen bevor ich Coltivo nutze?</h4>
+                    <div class="faq-answer">
+                        Nein! Die Software ist intuitiv designed. Das Video ist optional für schnelle Orientierung. Die meisten Nutzer verstehen sie direkt.
+                    </div>
+                </div>
 
-                .faq-item h4 {
-                    color: var(--dark);
-                    margin-bottom: 10px;
-                    cursor: pointer;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                }
+                <div class="faq-item">
+                    <h4 onclick="toggleFaq(this)">Gibt es Trainingsressourcen?</h4>
+                    <div class="faq-answer">
+                        Ja! Neben dem Video: Dokumentation, FAQ, und direkter Support von mir. Ich antworte auf jede Frage persönlich.
+                    </div>
+                </div>
 
-                .faq-item h4::after {
-                    content: '▼';
-                    font-size: 12px;
-                    transition: transform 0.3s ease;
-                }
+                <div class="faq-item">
+                    <h4 onclick="toggleFaq(this)">Kann ich das Dashboard vorher testen?</h4>
+                    <div class="faq-answer">
+                        Ja! Mit der 24h Demo bekommst du vollen Zugriff auf das echte Dashboard mit Demo-Containern.
+                    </div>
+                </div>
 
-                .faq-item h4.open::after {
-                    transform: rotate(180deg);
-                }
+                <div class="faq-item">
+                    <h4 onclick="toggleFaq(this)">Wie lange dauert das Onboarding?</h4>
+                    <div class="faq-answer">
+                        Das hängt ab. Die meisten sind in 30-60 Minuten produktiv. Größere Teams können länger brauchen. Ich helfe gerne beim Setup.
+                    </div>
+                </div>
 
-                .faq-answer {
-                    color: #666;
-                    line-height: 1.6;
-                    display: none;
-                    margin-top: 10px;
-                }
+                <div class="faq-item">
+                    <h4 onclick="toggleFaq(this)">Wo finde ich mehr Dokumentation?</h4>
+                    <div class="faq-answer">
+                        In deinem Dashboard gibt es eine komplette Dokumentation. Plus: API-Docs, Integration-Guides, und Video-Tutorials.
+                    </div>
+                </div>
 
-                .faq-answer.show {
-                    display: block;
-                }
-            </style>
-
-            <div class="faq-item">
-                <h4 onclick="toggleFaq(this)">Wie lange läuft mein Demo-Account?</h4>
-                <div class="faq-answer">Dein Demo-Account ist 30 Tage lang kostenlos gültig. Danach kannst du dich für
-                    ein bezahltes Abo entscheiden oder das Account löschen.</div>
-            </div>
-
-            <div class="faq-item">
-                <h4 onclick="toggleFaq(this)">Kann ich meine Daten exportieren?</h4>
-                <div class="faq-answer">Ja! Du kannst alle deine Daten jederzeit in verschiedenen Formaten (CSV, PDF,
-                    Excel) exportieren. Das ist völlig kostenlos und unabhängig von deinem Abo-Status.</div>
-            </div>
-
-            <div class="faq-item">
-                <h4 onclick="toggleFaq(this)">Welche Zahlungsmethoden akzeptiert ihr?</h4>
-                <div class="faq-answer">Wir akzeptieren Kreditkarten (Visa, Mastercard, Amex), PayPal, Apple Pay, Google
-                    Pay und Kryptowährungen (Bitcoin, Ethereum). Wähle die Methode, die dir passt.</div>
-            </div>
-
-            <div class="faq-item">
-                <h4 onclick="toggleFaq(this)">Ist mein Account und meine Daten sicher?</h4>
-                <div class="faq-answer">Absolut! Wir verwenden SSL/TLS-Verschlüsselung, 2-Faktor-Authentifizierung und
-                    sind vollständig DSGVO-konform. Deine Daten werden auf sicheren Servern in Europa gespeichert.</div>
-            </div>
-
-            <div class="faq-item">
-                <h4 onclick="toggleFaq(this)">Gibt es einen Kundensupport?</h4>
-                <div class="faq-answer">Ja! Unser Support-Team ist 24/7 erreichbar via E-Mail, Chat und Telefon. Bei
-                    Premium-Abos auch mit priorisiertem Support.</div>
+                <div class="faq-item">
+                    <h4 onclick="toggleFaq(this)">Gibt es Telefon-Support?</h4>
+                    <div class="faq-answer">
+                        Nicht offiziell, aber: Du kannst mich direkt anschreiben und bekommst schnelle Antwort. Oft schneller als Telefon!
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Container Pro. Alle Rechte vorbehalten. | <a href="#">Impressum</a> | <a href="#">Datenschutz</a>
-        </p>
+        <p>&copy; 2026 Coltivo. Alle Rechte vorbehalten. | <a href="#">Impressum</a> | <a href="#">Datenschutz</a></p>
     </footer>
 
     <script>
@@ -375,5 +247,4 @@
     </script>
     <script src="script.js"></script>
 </body>
-
 </html>

@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo anfordern - Container Pro</title>
+    <title>24h Demo - Coltivo</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         .demo-container {
-            max-width: 500px;
+            max-width: 600px;
             margin: 0 auto;
             background: white;
             padding: 40px;
@@ -17,7 +16,7 @@
         }
 
         .demo-container h2 {
-            color: var(--primary);
+            color: #0d47a1;
             margin-bottom: 10px;
             text-align: center;
         }
@@ -29,6 +28,17 @@
             font-size: 14px;
         }
 
+        .badge-demo {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            color: #856404;
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 600;
+        }
+
         .success-message {
             background: #d4edda;
             border: 1px solid #c3e6cb;
@@ -37,7 +47,7 @@
             border-radius: 4px;
             text-align: center;
             display: none;
-            margin-top: 20px;
+            margin-bottom: 20px;
             animation: slideIn 0.3s ease;
         }
 
@@ -50,41 +60,120 @@
             color: #155724;
         }
 
-        .required-field {
-            color: var(--accent);
+        .credentials-box {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 15px;
+            font-family: monospace;
+            font-size: 14px;
         }
 
-        .form-group.two-columns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
+        .credentials-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #dee2e6;
         }
 
-        .form-group.two-columns .form-group {
+        .credentials-row:last-child {
             margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
         }
 
-        @media (max-width: 600px) {
-            .form-group.two-columns {
-                grid-template-columns: 1fr;
-                gap: 0;
-            }
+        .credentials-label {
+            color: #666;
+            font-weight: 600;
+        }
+
+        .credentials-value {
+            background: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            color: #0d47a1;
+            font-weight: 600;
+        }
+
+        .copy-btn {
+            background: none;
+            border: none;
+            color: #0d47a1;
+            cursor: pointer;
+            font-size: 12px;
+            text-decoration: underline;
+            margin-left: 10px;
+        }
+
+        .copy-btn:hover {
+            color: #ff9800;
+        }
+
+        .timer {
+            background: linear-gradient(135deg, #ff6b6b, #ff9800);
+            color: white;
+            padding: 15px;
+            border-radius: 4px;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .benefit-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .benefit-item h4 {
+            color: #0d47a1;
+            margin-bottom: 8px;
+        }
+
+        .benefit-item p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .required-field {
+            color: #ff6b6b;
+        }
+
+        .form-note {
+            background: #e3f2fd;
+            border-left: 4px solid #0d47a1;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            color: #0d47a1;
+            font-size: 14px;
         }
     </style>
 </head>
-
 <body>
     <!-- NAVIGATION -->
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo">🚀 Container Pro</a>
+            <a href="index.html" class="logo">📦 Coltivo</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="news.html">News</a></li>
-                <li><a href="calculator.html">Preiscalculator</a></li>
+                <li><a href="calculator.html">Pricing</a></li>
                 <li><a href="demo.html" class="active">Demo</a></li>
-                <li><a href="video.html">Video</a></li>
-                <li><a href="about.html">Über uns</a></li>
+                <li><a href="video.html">Tutorial</a></li>
+                <li><a href="about.html">Über mich</a></li>
                 <li><a href="contact.html">Kontakt</a></li>
             </ul>
         </div>
@@ -92,149 +181,283 @@
 
     <!-- DEMO SECTION -->
     <div class="container">
-        <h2 class="section-title">📝 Demo-Account anfordern</h2>
-
+        <h2 class="section-title">🎁 24-Stunden Demo</h2>
+        
         <div class="demo-container">
-            <h2>Teste Container Pro kostenlos</h2>
-            <p class="subtitle">Du erhältst sofort Zugang. Keine Kreditkarte erforderlich.</p>
-
-            <form onsubmit="submitDemo(event)">
-                <div class="form-group">
-                    <label for="demoName">Name <span class="required-field">*</span></label>
-                    <input type="text" id="demoName" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="demoEmail">E-Mail <span class="required-field">*</span></label>
-                    <input type="email" id="demoEmail" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="demoCompany">Unternehmen <span class="required-field">*</span></label>
-                    <input type="text" id="demoCompany" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="demoPhone">Telefon <span class="required-field">*</span></label>
-                    <input type="tel" id="demoPhone" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="demoMessage">Nachricht (optional)</label>
-                    <textarea id="demoMessage" rows="4"
-                        placeholder="Erzähle uns mehr über deine Anforderungen..."></textarea>
-                </div>
-
-                <button type="submit" class="btn" style="width: 100%; text-align: center;">Demo-Account
-                    erstellen</button>
-            </form>
+            <h2>Teste Coltivo kostenlos</h2>
+            <p class="subtitle">Vollzugriff für 24 Stunden. Keine Kreditkarte erforderlich.</p>
 
             <div id="successMessage" class="success-message">
-                <h3>✅ Vielen Dank!</h3>
-                <p>Dein Demo-Account wird in Kürze erstellt. Überprüfe deine E-Mail für die Zugangsdaten.</p>
-                <p style="margin-top: 15px; font-size: 12px;">Unser Support-Team kontaktiert dich auch in Kürze.</p>
+                <h3>✅ Demo-Account erfolgreich erstellt!</h3>
+                <p>Dein temporärer Account ist aktiv. Gültig für die nächsten 24 Stunden.</p>
+                
+                <div class="credentials-box">
+                    <div class="credentials-row">
+                        <span class="credentials-label">Email:</span>
+                        <span class="credentials-value" id="demoEmail">demo@coltivo.de</span>
+                        <button class="copy-btn" onclick="copyToClipboard('demoEmail')">📋 Kopieren</button>
+                    </div>
+                    <div class="credentials-row">
+                        <span class="credentials-label">Passwort:</span>
+                        <span class="credentials-value" id="demoPassword">Demo123!</span>
+                        <button class="copy-btn" onclick="copyToClipboard('demoPassword')">📋 Kopieren</button>
+                    </div>
+                    <div class="credentials-row">
+                        <span class="credentials-label">Organisation:</span>
+                        <span class="credentials-value" id="demoOrg">Demo GmbH</span>
+                        <button class="copy-btn" onclick="copyToClipboard('demoOrg')">📋 Kopieren</button>
+                    </div>
+                </div>
+
+                <div class="timer" id="timer">
+                    ⏰ Demo verfällt in: 24:00:00
+                </div>
+
+                <p style="margin-top: 20px; text-align: center; color: #666; font-size: 14px;">
+                    <strong>Demo-Account Details:</strong><br>
+                    Vollzugriff auf alle Features • 10 Demo-Container • 5 Team-Mitglieder
+                </p>
+
+                <a href="https://app.coltivo.de/login" class="btn" style="width: 100%; text-align: center; margin-top: 20px;" target="_blank">
+                    Jetzt Login
+                </a>
             </div>
 
-            <div id="errorMessage" class="success-message"
-                style="background: #f8d7da; border-color: #f5c6cb; color: #721c24; display: none;">
-                <h3>⚠️ Fehler beim Absenden</h3>
-                <p>Bitte überprüfe deine Eingaben und versuche es erneut.</p>
+            <div id="formContainer">
+                <div class="badge-demo">
+                    ⚡ Sofortiger Zugang - keine Bestätigung nötig
+                </div>
+
+                <div class="form-note">
+                    💡 Nach dem Erstellen erhältst du sofort deine Login-Daten und kannst dich anmelden. Der Account ist automatisch 24 Stunden aktiv.
+                </div>
+
+                <form onsubmit="createDemoAccount(event)">
+                    <div class="form-group">
+                        <label for="demoName">Dein Name <span class="required-field">*</span></label>
+                        <input type="text" id="demoName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="demoEmailInput">E-Mail <span class="required-field">*</span></label>
+                        <input type="email" id="demoEmailInput" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="demoCompany">Dein Unternehmen <span class="required-field">*</span></label>
+                        <input type="text" id="demoCompany" required placeholder="z.B. Meine GmbH">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="demoPhone">Telefon (optional)</label>
+                        <input type="tel" id="demoPhone" placeholder="+49 123 456789">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="demoMessage">Wie viele Container hast du ungefähr? (optional)</label>
+                        <input type="text" id="demoMessage" placeholder="z.B. 50-100">
+                    </div>
+
+                    <button type="submit" class="btn" style="width: 100%; text-align: center;">Demo-Account erstellen</button>
+                </form>
+
+                <p style="text-align: center; color: #666; margin-top: 20px; font-size: 12px;">
+                    Mit dem Erstellen des Demo-Accounts stimmst du unserer <a href="#" style="color: #0d47a1;">Datenschutzerklärung</a> zu.
+                </p>
             </div>
         </div>
 
         <!-- BENEFITS SECTION -->
         <div style="margin-top: 60px;">
-            <h3 style="text-align: center; color: var(--primary); margin-bottom: 40px;">Was bekommst du mit deinem
-                Demo-Account?</h3>
-
-            <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto;">
-                <div style="text-align: center;">
-                    <div style="font-size: 48px; margin-bottom: 15px;">📊</div>
-                    <h4 style="color: var(--primary); margin-bottom: 10px;">Dashboard</h4>
-                    <p style="color: #666; font-size: 14px;">Vollzugriff auf dein persönliches Dashboard mit allen
-                        Funktionen.</p>
+            <h3 style="text-align: center; color: #0d47a1; margin-bottom: 40px;">Was bekommst du in der 24h Demo?</h3>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div style="font-size: 36px; margin-bottom: 10px;">📦</div>
+                    <h4>10 Demo-Container</h4>
+                    <p>Mit realistischen Daten zum Testen der Verwaltung</p>
                 </div>
 
-                <div style="text-align: center;">
-                    <div style="font-size: 48px; margin-bottom: 15px;">🆓</div>
-                    <h4 style="color: var(--primary); margin-bottom: 10px;">Kostenlos testen</h4>
-                    <p style="color: #666; font-size: 14px;">30 Tage kostenloser Zugriff. Keine Kreditkarte
-                        erforderlich.</p>
+                <div class="benefit-item">
+                    <div style="font-size: 36px; margin-bottom: 10px;">👥</div>
+                    <h4>5 Team-Mitglieder</h4>
+                    <p>Zum Testen der Team-Verwaltung</p>
                 </div>
 
-                <div style="text-align: center;">
-                    <div style="font-size: 48px; margin-bottom: 15px;">🎓</div>
-                    <h4 style="color: var(--primary); margin-bottom: 10px;">Training & Support</h4>
-                    <p style="color: #666; font-size: 14px;">Persönliches Onboarding und Support während deiner
-                        Test-Phase.</p>
+                <div class="benefit-item">
+                    <div style="font-size: 36px; margin-bottom: 10px;">🗺️</div>
+                    <h4>Routen-Optimierung</h4>
+                    <p>Vollständig funktionsfähig</p>
                 </div>
 
-                <div style="text-align: center;">
-                    <div style="font-size: 48px; margin-bottom: 15px;">📱</div>
-                    <h4 style="color: var(--primary); margin-bottom: 10px;">Mobile App</h4>
-                    <p style="color: #666; font-size: 14px;">Zugriff auf unsere iOS und Android App mit vollem Umfang.
-                    </p>
+                <div class="benefit-item">
+                    <div style="font-size: 36px; margin-bottom: 10px;">📊</div>
+                    <h4>Analytics & Reports</h4>
+                    <p>Alle Analyse-Features verfügbar</p>
                 </div>
 
-                <div style="text-align: center;">
-                    <div style="font-size: 48px; margin-bottom: 15px;">⚙️</div>
-                    <h4 style="color: var(--primary); margin-bottom: 10px;">Alle Features</h4>
-                    <p style="color: #666; font-size: 14px;">Alle bezahlten Features sind im Demo-Zeitraum enthalten.
-                    </p>
+                <div class="benefit-item">
+                    <div style="font-size: 36px; margin-bottom: 10px;">🔒</div>
+                    <h4>API Access</h4>
+                    <p>Test-API-Keys inklusive</p>
                 </div>
 
-                <div style="text-align: center;">
-                    <div style="font-size: 48px; margin-bottom: 15px;">🔒</div>
-                    <h4 style="color: var(--primary); margin-bottom: 10px;">Datensicherheit</h4>
-                    <p style="color: #666; font-size: 14px;">Deine Daten sind verschlüsselt und sicher. DSGVO-konform.
-                    </p>
+                <div class="benefit-item">
+                    <div style="font-size: 36px; margin-bottom: 10px;">📱</div>
+                    <h4>Mobile App</h4>
+                    <p>Voller Zugriff auf alle Apps</p>
                 </div>
+            </div>
+        </div>
+
+        <!-- FAQ SECTION -->
+        <div style="max-width: 800px; margin: 80px auto 0;">
+            <h3 style="text-align: center; color: #0d47a1; margin-bottom: 30px;">Fragen zur Demo?</h3>
+            
+            <style>
+                .faq-item {
+                    background: white;
+                    padding: 20px;
+                    border-radius: 8px;
+                    margin-bottom: 15px;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+                }
+
+                .faq-item h4 {
+                    color: #0d47a1;
+                    margin-bottom: 10px;
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-weight: 600;
+                }
+
+                .faq-item h4::after {
+                    content: '▼';
+                    font-size: 12px;
+                    transition: transform 0.3s ease;
+                }
+
+                .faq-item h4.open::after {
+                    transform: rotate(180deg);
+                }
+
+                .faq-answer {
+                    color: #666;
+                    line-height: 1.6;
+                    display: none;
+                    margin-top: 10px;
+                }
+
+                .faq-answer.show {
+                    display: block;
+                }
+            </style>
+
+            <div class="faq-item">
+                <h4 onclick="toggleFaq(this)">Wie lange dauert es, den Demo-Account zu erstellen?</h4>
+                <div class="faq-answer">Sofort! Nachdem du das Formular abgesendet hast, erhältst du deine Login-Daten innerhalb von Sekunden.</div>
+            </div>
+
+            <div class="faq-item">
+                <h4 onclick="toggleFaq(this)">Kann ich eine Kreditkarte hinzufügen?</h4>
+                <div class="faq-answer">Nein, für die Demo ist keine Kreditkarte nötig. Du hast vollen Zugriff ohne Zahlungsmittel.</div>
+            </div>
+
+            <div class="faq-item">
+                <h4 onclick="toggleFaq(this)">Was passiert nach 24 Stunden?</h4>
+                <div class="faq-answer">Der Account wird automatisch deaktiviert. Du erhältst eine E-Mail mit der Möglichkeit, zu einem bezahlten Plan zu upgraden.</div>
+            </div>
+
+            <div class="faq-item">
+                <h4 onclick="toggleFaq(this)">Kann ich die Demo verlängern?</h4>
+                <div class="faq-answer">Ja, kontaktiere uns unter contact.html. Wir können dir eine zusätzliche Demo-Zeit geben oder schneller zum Plan upgraden.</div>
+            </div>
+
+            <div class="faq-item">
+                <h4 onclick="toggleFaq(this)">Kann ich meine Demo-Daten behalten?</h4>
+                <div class="faq-answer">Leider nicht. Demo-Accounts werden nach 24 Stunden komplett gelöscht. Starten Sie einfach mit einem bezahlten Plan.</div>
+            </div>
+
+            <div class="faq-item">
+                <h4 onclick="toggleFaq(this)">Brauche ich eine Beratung?</h4>
+                <div class="faq-answer">Nein, aber wir können helfen! Kontaktiere unseren Support während der Demo - sie helfen dir gerne weiter.</div>
             </div>
         </div>
     </div>
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Container Pro. Alle Rechte vorbehalten. | <a href="#">Impressum</a> | <a href="#">Datenschutz</a>
-        </p>
+        <p>&copy; 2026 Coltivo. Alle Rechte vorbehalten. | <a href="#">Impressum</a> | <a href="#">Datenschutz</a></p>
     </footer>
 
     <script>
-        function submitDemo(event) {
+        function createDemoAccount(event) {
             event.preventDefault();
+            
+            const name = document.getElementById('demoName').value;
+            const email = document.getElementById('demoEmailInput').value;
+            const company = document.getElementById('demoCompany').value;
+            const phone = document.getElementById('demoPhone').value;
+            const containers = document.getElementById('demoMessage').value;
 
-            const formData = {
-                name: document.getElementById('demoName').value,
-                email: document.getElementById('demoEmail').value,
-                company: document.getElementById('demoCompany').value,
-                phone: document.getElementById('demoPhone').value,
-                message: document.getElementById('demoMessage').value,
-                timestamp: new Date().toISOString()
-            };
+            // Generate random demo credentials
+            const demoEmail = `demo-${Math.random().toString(36).substring(7)}@coltivo.de`;
+            const demoPassword = `Demo${Math.random().toString(36).substring(2, 8).toUpperCase()}!`;
+            const demoOrg = company || 'Demo Org';
 
-            // In echter Anwendung würde das an einen Server gesendet
-            console.log('Demo-Anfrage:', formData);
-
-            // Reset form
-            event.target.reset();
-
-            // Hide error message if shown
-            document.getElementById('errorMessage').classList.remove('show');
+            // Log to console (in production würde das zu deinem Backend gehen)
+            console.log('Demo Account erstellt:', {
+                name, email, company, phone, containers,
+                demoEmail, demoPassword, demoOrg,
+                expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000)
+            });
 
             // Show success message
+            document.getElementById('formContainer').style.display = 'none';
+            document.getElementById('demoEmail').innerText = demoEmail;
+            document.getElementById('demoPassword').innerText = demoPassword;
+            document.getElementById('demoOrg').innerText = demoOrg;
             document.getElementById('successMessage').classList.add('show');
 
-            // Scroll to success message
-            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            // Start countdown timer
+            startCountdown();
+        }
 
-            // Hide success message after 8 seconds
-            setTimeout(() => {
-                document.getElementById('successMessage').classList.remove('show');
-            }, 8000);
+        function startCountdown() {
+            let secondsLeft = 24 * 60 * 60;
+            
+            setInterval(() => {
+                secondsLeft--;
+                const hours = Math.floor(secondsLeft / 3600);
+                const minutes = Math.floor((secondsLeft % 3600) / 60);
+                const seconds = secondsLeft % 60;
+                
+                document.getElementById('timer').innerText = 
+                    `⏰ Demo verfällt in: ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.innerText;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = element.parentElement.querySelector('.copy-btn').innerText;
+                element.parentElement.querySelector('.copy-btn').innerText = '✓ Kopiert!';
+                setTimeout(() => {
+                    element.parentElement.querySelector('.copy-btn').innerText = originalText;
+                }, 2000);
+            });
+        }
+
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            answer.classList.toggle('show');
+            element.classList.toggle('open');
         }
     </script>
     <script src="script.js"></script>
 </body>
-
 </html>

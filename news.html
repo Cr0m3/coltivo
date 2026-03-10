@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News - Container Pro</title>
+    <title>News & Updates - Coltivo</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         .news-grid {
@@ -19,7 +18,7 @@
             padding: 30px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 4px solid var(--accent);
+            border-left: 4px solid #ff9800;
             animation: fadeIn 0.6s ease;
         }
 
@@ -29,14 +28,14 @@
         }
 
         .news-date {
-            color: var(--accent);
+            color: #ff9800;
             font-weight: 600;
             margin-bottom: 10px;
             font-size: 14px;
         }
 
         .news-card h3 {
-            color: var(--dark);
+            color: #0d47a1;
             margin-bottom: 15px;
             font-size: 20px;
         }
@@ -49,7 +48,7 @@
         .badge {
             display: inline-block;
             padding: 6px 12px;
-            background: var(--accent);
+            background: #ff9800;
             color: white;
             border-radius: 20px;
             font-size: 12px;
@@ -58,27 +57,27 @@
         }
 
         .badge.feature {
-            background: var(--primary);
+            background: #1e7e34;
         }
 
         .badge.bugfix {
             background: #ffc107;
+            color: #333;
         }
     </style>
 </head>
-
 <body>
     <!-- NAVIGATION -->
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo">🚀 Container Pro</a>
+            <a href="index.html" class="logo">📦 Coltivo</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="news.html" class="active">News</a></li>
-                <li><a href="calculator.html">Preiscalculator</a></li>
+                <li><a href="calculator.html">Pricing</a></li>
                 <li><a href="demo.html">Demo</a></li>
-                <li><a href="video.html">Video</a></li>
-                <li><a href="about.html">Über uns</a></li>
+                <li><a href="video.html">Tutorial</a></li>
+                <li><a href="about.html">Über mich</a></li>
                 <li><a href="contact.html">Kontakt</a></li>
             </ul>
         </div>
@@ -86,90 +85,79 @@
 
     <!-- NEWS SECTION -->
     <div class="container">
-        <h2 class="section-title">📰 Neueste Updates</h2>
-
+        <h2 class="section-title">📰 Updates & Features</h2>
+        
         <div class="news-grid">
             <div class="news-card">
-                <div class="news-date">15. März 2026</div>
-                <h3>Mobile App verfügbar</h3>
-                <p>Verwalte deine Container jetzt auch unterwegs mit unserer neuen mobilen Anwendung. Verfügbar für iOS
-                    und Android. Push-Benachrichtigungen für Liefertage und Abholungen.</p>
-                <span class="badge feature">Feature</span>
-            </div>
-
-            <div class="news-card">
-                <div class="news-date">12. März 2026</div>
-                <h3>Performance Optimierungen</h3>
-                <p>Die Plattform lädt jetzt 40% schneller. Wir haben den Backend-Code optimiert und CDN-Caching
-                    hinzugefügt. Dein Dashboard ist jetzt blitzschnell.</p>
-                <span class="badge bugfix">Fix</span>
-            </div>
-
-            <div class="news-card">
                 <div class="news-date">10. März 2026</div>
-                <h3>API für Partner verfügbar</h3>
-                <p>Entwickler können jetzt unsere REST API nutzen um Container-Verwaltung in ihre Systeme zu
-                    integrieren. Vollständige Dokumentation verfügbar.</p>
-                <span class="badge feature">Feature</span>
+                <h3>Website Launch 🚀</h3>
+                <p>Coltivo ist offiziell live! Marketing-Website online, 24h Demo verfügbar, und erste Kunden können testen. Großer Tag für das Projekt!</p>
+                <span class="badge feature">Milestone</span>
             </div>
 
             <div class="news-card">
                 <div class="news-date">8. März 2026</div>
-                <h3>Dashboard Dark Mode</h3>
-                <p>Neue Dark Mode Option für das Dashboard. Schont die Augen bei Nachtarbeit und spart Batterie auf
-                    mobilen Geräten. Ein Klick zum Aktivieren.</p>
+                <h3>Route Optimization v2.0</h3>
+                <p>Verbesserte Algorithmen für Routen-Optimierung. Kunden sparen jetzt im Durchschnitt 40% Transport-Kosten. Performance-Boost!</p>
                 <span class="badge feature">Feature</span>
             </div>
 
             <div class="news-card">
                 <div class="news-date">5. März 2026</div>
-                <h3>Bug Fixes und Verbesserungen</h3>
-                <p>Behoben: Fehler bei Bulk-Operationen, Kalender-Synchronisation verbessert, UI-Responsivität
-                    optimiert. Detaillierte Changelog in unserem Blog.</p>
-                <span class="badge bugfix">Fix</span>
+                <h3>Mobile App iOS Release</h3>
+                <p>Coltivo App für iPhone ist jetzt im App Store verfügbar. Verwalte deine Container von unterwegs. Android kommt nächste Woche!</p>
+                <span class="badge feature">Feature</span>
             </div>
 
             <div class="news-card">
                 <div class="news-date">1. März 2026</div>
-                <h3>Neue Integrationen</h3>
-                <p>Container Pro verbindet sich jetzt mit Google Calendar, Slack und Microsoft Teams für bessere
-                    Zusammenarbeit. Automatische Benachrichtigungen für dein Team.</p>
+                <h3>Analytics Dashboard Update</h3>
+                <p>Neues Dashboard mit besseren Visualisierungen. Echtzeit-Reports, Trend-Analysen, und Custom-Dashboard Layouts für deine Bedürfnisse.</p>
                 <span class="badge feature">Feature</span>
             </div>
 
             <div class="news-card">
                 <div class="news-date">25. Februar 2026</div>
-                <h3>Mehrsprachige Unterstützung</h3>
-                <p>Container Pro unterstützt jetzt 8 Sprachen: Deutsch, Englisch, Französisch, Italienisch, Spanisch,
-                    Niederländisch, Polnisch und Russisch.</p>
-                <span class="badge feature">Feature</span>
+                <h3>API v1.1 Release</h3>
+                <p>REST API erweitert. Webhooks, besseres Error Handling, und erweiterte Filtering-Optionen. Dokumentation aktualisiert.</p>
+                <span class="badge feature">Update</span>
             </div>
 
             <div class="news-card">
                 <div class="news-date">20. Februar 2026</div>
-                <h3>Sicherheits-Update</h3>
-                <p>Erhöhte Sicherheit mit 2FA-Authentifizierung und verschlüsselten Datenübertragungen. Deine Daten sind
-                    jetzt noch besser geschützt.</p>
-                <span class="badge bugfix">Sicherheit</span>
+                <h3>Team Collaboration Features</h3>
+                <p>Neue Funktionen für Team-Zusammenarbeit: Live Notifications, Team Chats, Task Assignment. Einfacher zusammenarbeiten.</p>
+                <span class="badge feature">Feature</span>
             </div>
 
             <div class="news-card">
                 <div class="news-date">15. Februar 2026</div>
-                <h3>Neue Zahlungsmethoden</h3>
-                <p>Wir akzeptieren jetzt PayPal, Apple Pay, Google Pay und Kryptowährungen. Flexible Zahlungsoptionen
-                    für deine Bequemlichkeit.</p>
-                <span class="badge feature">Feature</span>
+                <h3>Performance Improvements</h3>
+                <p>Database Optimizations durchgeführt. Dashboard lädt jetzt 35% schneller. Queries sind optimiert für große Datasets.</p>
+                <span class="badge bugfix">Optimization</span>
+            </div>
+
+            <div class="news-card">
+                <div class="news-date">10. Februar 2026</div>
+                <h3>DSGVO Compliance</h3>
+                <p>Vollständige DSGVO-Konformität zertifiziert. Datenexport, Recht auf Vergessenwerden, alles korrekt implementiert.</p>
+                <span class="badge bugfix">Compliance</span>
+            </div>
+
+            <div class="news-card">
+                <div class="news-date">1. Februar 2026</div>
+                <h3>Beta Testing Abgeschlossen</h3>
+                <p>Nach 3 Monaten intensivem Beta-Testing mit 10 Pilot-Kunden: Alles Feedback eingebaut. Production Ready!</p>
+                <span class="badge feature">Milestone</span>
             </div>
         </div>
     </div>
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Container Pro. Alle Rechte vorbehalten. | <a href="#">Impressum</a> | <a href="#">Datenschutz</a>
-        </p>
+        <p>&copy; 2026 Coltivo. Alle Rechte vorbehalten. | <a href="#">Impressum</a> | <a href="#">Datenschutz</a></p>
     </footer>
 
     <script src="script.js"></script>
 </body>
-
 </html>

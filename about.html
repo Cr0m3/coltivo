@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Über uns - Container Pro</title>
+    <title>Über mich - Coltivo</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         .about-hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, #0d47a1 0%, #1e7e34 100%);
             color: white;
             padding: 60px 20px;
             text-align: center;
@@ -26,107 +25,77 @@
             opacity: 0.95;
         }
 
-        .team-section {
-            margin-top: 50px;
-        }
-
-        .team-grid {
+        .founder-section {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin: 60px 0;
         }
 
-        .team-member {
-            background: white;
-            border-radius: 8px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .team-member:hover {
-            transform: translateY(-5px);
-        }
-
-        .member-avatar {
-            width: 100px;
-            height: 100px;
+        .founder-photo {
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #0d47a1, #1e7e34);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 48px;
+            font-size: 80px;
+            margin: 0 auto;
         }
 
-        .team-member h3 {
-            color: var(--dark);
-            margin-bottom: 5px;
+        .founder-story h2 {
+            color: #0d47a1;
+            font-size: 28px;
+            margin-bottom: 20px;
         }
 
-        .team-member .role {
-            color: var(--accent);
-            font-weight: 600;
+        .founder-story p {
+            color: #666;
+            line-height: 1.8;
             margin-bottom: 15px;
         }
 
-        .team-member p {
-            color: #666;
-            font-size: 14px;
-            line-height: 1.6;
+        .story-highlight {
+            background: #e3f2fd;
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 30px 0;
+            color: #0d47a1;
+        }
+
+        .values-section {
+            background: #f5f5f5;
+            padding: 60px 20px;
+            margin: 60px 0;
         }
 
         .values-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
-            margin-top: 40px;
+            max-width: 1000px;
+            margin: 40px auto;
         }
 
         .value-card {
             background: white;
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            border-top: 4px solid var(--accent);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid #0d47a1;
         }
 
         .value-card h3 {
-            color: var(--primary);
+            color: #0d47a1;
             margin-bottom: 15px;
         }
 
         .value-card p {
             color: #666;
             line-height: 1.6;
-        }
-
-        .stats {
-            background: var(--light);
-            padding: 40px 20px;
-            margin-top: 50px;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 30px;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .stat-item h2 {
-            font-size: 48px;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        .stat-item p {
-            color: #666;
         }
 
         .timeline {
@@ -137,7 +106,7 @@
         .timeline-item {
             padding: 20px;
             margin-bottom: 20px;
-            border-left: 4px solid var(--accent);
+            border-left: 4px solid #ff9800;
             padding-left: 30px;
             position: relative;
         }
@@ -150,17 +119,17 @@
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background: var(--accent);
+            background: #ff9800;
             border: 3px solid white;
         }
 
         .timeline-item h4 {
-            color: var(--primary);
+            color: #0d47a1;
             margin-bottom: 8px;
         }
 
         .timeline-item .year {
-            color: var(--accent);
+            color: #ff9800;
             font-weight: 600;
             font-size: 14px;
         }
@@ -169,21 +138,78 @@
             color: #666;
             margin-top: 10px;
         }
+
+        .stats {
+            background: linear-gradient(135deg, #0d47a1, #1e7e34);
+            color: white;
+            padding: 60px 20px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        .stat-item h2 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .contact-cta {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 60px auto;
+            max-width: 700px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-cta h3 {
+            color: #0d47a1;
+            margin-bottom: 15px;
+        }
+
+        .contact-cta p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .founder-section {
+                grid-template-columns: 1fr;
+            }
+
+            .founder-photo {
+                width: 150px;
+                height: 150px;
+                font-size: 60px;
+            }
+        }
     </style>
 </head>
-
 <body>
     <!-- NAVIGATION -->
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo">🚀 Container Pro</a>
+            <a href="index.html" class="logo">📦 Coltivo</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="news.html">News</a></li>
-                <li><a href="calculator.html">Preiscalculator</a></li>
+                <li><a href="calculator.html">Pricing</a></li>
                 <li><a href="demo.html">Demo</a></li>
-                <li><a href="video.html">Video</a></li>
-                <li><a href="about.html" class="active">Über uns</a></li>
+                <li><a href="video.html">Tutorial</a></li>
+                <li><a href="about.html" class="active">Über mich</a></li>
                 <li><a href="contact.html">Kontakt</a></li>
             </ul>
         </div>
@@ -191,195 +217,173 @@
 
     <!-- ABOUT HERO -->
     <div class="about-hero">
-        <h1>Unsere Mission</h1>
-        <p>Container Pro macht Entsorgung einfach, transparent und nachhaltig. Wir helfen Unternehmen, ihre
-            Abfallwirtschaft zu optimieren — schnell, zuverlässig und zu fairen Preisen.</p>
+        <h1>Die Geschichte von Coltivo</h1>
+        <p>Eine Solo-Mission: Bessere Software für Container-Management. Gebaut mit ❤️ in Deutschland.</p>
     </div>
 
-    <!-- STORY SECTION -->
+    <!-- FOUNDER STORY -->
     <div class="container">
-        <h2 class="section-title">Unsere Geschichte</h2>
+        <div class="founder-section">
+            <div class="founder-photo">👨‍💻</div>
+            <div class="founder-story">
+                <h2>Hi, ich bin Lübos</h2>
+                <p>
+                    Ich bin ein Full-Stack Developer & Systeminformatiker aus Deutschland. Vor ein paar Jahren merkte ich, dass Unternehmen keine gute Software für die Container-Verwaltung hatten. Die meisten nutzen noch Excel-Tabellen oder veraltete On-Premise Systeme.
+                </p>
+                <p>
+                    Das nervte mich. Also beschloss ich, selbst eine Lösung zu bauen: <strong>Coltivo</strong>.
+                </p>
+                
+                <div class="story-highlight">
+                    <strong>Das Ziel:</strong> Eine moderne, cloudbasierte Container-Management Software für kleine und mittlere Unternehmen im deutschsprachigen Raum. Einfach zu bedienen, fair im Preis, und ehrlich in der Kommunikation.
+                </div>
 
+                <p>
+                    Coltivo ist ein Soloprojekt. Aktuell gibt es keine weiteren Team-Member. Das bedeutet: <strong>schnelle Entscheidungen, direkter Kundenkontakt, und ehrliche Feature-Entwicklung</strong>.
+                </p>
+
+                <p>
+                    Ich arbeite von Deutschland aus und konzentriere mich auf die deutschsprachigen Märkte (DE, AT, CH). Lokales Verständnis für lokale Probleme.
+                </p>
+            </div>
+        </div>
+
+        <!-- STORY TIMELINE -->
+        <h2 class="section-title">Der Weg zu Coltivo</h2>
+        
         <div class="timeline">
             <div class="timeline-item">
-                <div class="year">2022</div>
-                <h4>Der Anfang</h4>
-                <p>Container Pro wurde gegründet, weil wir sahen, dass die Abfallwirtschaft zu kompliziert war. Ein
-                    kleines Team mit großer Vision.</p>
-            </div>
-
-            <div class="timeline-item">
                 <div class="year">2023</div>
-                <h4>Erste Kunden</h4>
-                <p>Nach 6 Monaten hatten wir die erste Version live. Die ersten 5 Kunden vertrauten uns. Ihre Feedback
-                    war Gold wert.</p>
+                <h4>Die Idee</h4>
+                <p>Ich sah das Problem bei mehreren Unternehmen: keine anständige Container-Management Software. Excel, Zettelwirtschaft, ineffiziente Routen. Ich dachte: "Das kann ich besser machen."</p>
             </div>
 
             <div class="timeline-item">
                 <div class="year">2024</div>
-                <h4>Skalierung</h4>
-                <p>Wir erreichten 50+ Kunden und 10.000+ verwaltete Container. Die Plattform wurde zur Standardlösung in
-                    der Branche.</p>
+                <h4>Version 1.0 gelauncht</h4>
+                <p>Nach 6 Monaten Entwicklung: Erste funktionierende Version mit Tracking, Team Management und Basic Analytics. MVP (Minimum Viable Product) fertig.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="year">2024</div>
+                <h4>Erste Tests mit Kunden</h4>
+                <p>Feedback von realen Kunden ist Gold. Ich iterierte rapid, basierend auf echten Use Cases. Einige Features wurden verworfen, neue kamen hinzu.</p>
             </div>
 
             <div class="timeline-item">
                 <div class="year">2025</div>
-                <h4>Globale Expansion</h4>
-                <p>Container Pro ist jetzt in 6 Ländern verfügbar. Mehrsprachiger Support, lokale Server, internationale
-                    Standards.</p>
+                <h4>Route Optimization & AI</h4>
+                <p>Entwicklung der automatischen Routen-Optimierung. Das sparte Kunden echtes Geld (bis zu 40% Transportkosten). Huge Win.</p>
             </div>
 
             <div class="timeline-item">
                 <div class="year">2026</div>
-                <h4>Version 2.0</h4>
-                <p>Komplette Überarbeitung mit AI-Optimierung, Mobile App und neuer UI. Noch besser, noch schneller,
-                    noch intelligenter.</p>
+                <h4>Heute: Jetzt geht's los</h4>
+                <p>Coltivo ist produktionsbereit. Marketing-Website live. Bereit für die erste Welle von Kunden. Du bist am Anfang einer Journey dabei.</p>
             </div>
         </div>
 
-        <!-- VALUES SECTION -->
-        <h2 class="section-title" style="margin-top: 60px;">Unsere Werte</h2>
+        <!-- VALUES -->
+        <div class="values-section">
+            <h2 class="section-title">Meine Werte</h2>
 
-        <div class="values-grid">
-            <div class="value-card">
-                <h3>🌍 Nachhaltigkeit</h3>
-                <p>Wir glauben an verantwortungsvolle Entsorgung. Jeder Container wird optimal recycelt und unsere
-                    Prozesse sind CO2-neutral.</p>
-            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3>🎯 Ehrlichkeit</h3>
+                    <p>Keine Versprechen, die ich nicht halten kann. Keine Fake-Metrics. Ich sage, was funktioniert und was nicht.</p>
+                </div>
 
-            <div class="value-card">
-                <h3>💡 Innovation</h3>
-                <p>Technologie sollte Probleme lösen. Deshalb investieren wir in AI, Automatisierung und bessere User
-                    Experience.</p>
-            </div>
+                <div class="value-card">
+                    <h3>⚡ Schnelligkeit</h3>
+                    <p>Als Solo-Founder kann ich schnell entscheiden und iterieren. Feature-Requests? Direkt mit mir besprechen.</p>
+                </div>
 
-            <div class="value-card">
-                <h3>🤝 Kundenorientierung</h3>
-                <p>Du kommst zuerst. Dein Feedback formt unsere Roadmap. Support 24/7 ist nicht optional — es ist
-                    Standard.</p>
-            </div>
+                <div class="value-card">
+                    <h3>💡 Kundenzentriert</h3>
+                    <p>Ich baue Features, die echte Probleme lösen. Nicht was ich denke, sondern was du brauchst.</p>
+                </div>
 
-            <div class="value-card">
-                <h3>🔒 Transparenz</h3>
-                <p>Keine versteckten Gebühren, keine Überraschungen. Jeder Preis ist fair und nachvollziehbar von Anfang
-                    an.</p>
-            </div>
+                <div class="value-card">
+                    <h3>🔒 Sicherheit</h3>
+                    <p>Deine Daten sind heilig. Verschlüsselt, in Deutschland gespeichert, DSGVO-konform. Punkt.</p>
+                </div>
 
-            <div class="value-card">
-                <h3>⚡ Geschwindigkeit</h3>
-                <p>Zeit ist kostbar. Container in 24-48 Stunden, Antworte innerhalb von 2 Stunden. Schnell ist unser
-                    Standard.</p>
-            </div>
+                <div class="value-card">
+                    <h3>💰 Faire Preise</h3>
+                    <p>Keine versteckten Gebühren. Keine Überraschungen. Transparente Preisgestaltung von Anfang an.</p>
+                </div>
 
-            <div class="value-card">
-                <h3>📊 Datengetrieben</h3>
-                <p>Entscheidungen basieren auf Daten. Unsere Analytics helfen dir, bessere Entscheidungen zu treffen.
-                </p>
+                <div class="value-card">
+                    <h3>🇩🇪 Local First</h3>
+                    <p>Ich verstehe die deutschsprachigen Märkte. Lokale Unterstützung, lokale Serverstandorte, lokale Compliance.</p>
+                </div>
             </div>
         </div>
 
-        <!-- STATS SECTION -->
+        <!-- STATS -->
         <div class="stats">
-            <h2 class="section-title" style="margin-bottom: 50px;">Zahlen, die sprechen</h2>
-
+            <h2 class="section-title" style="color: white;">Coltivo heute</h2>
+            
             <div class="stats-grid">
                 <div class="stat-item">
-                    <h2>50+</h2>
-                    <p>Kunden</p>
+                    <h2>1</h2>
+                    <p>Person (ich 😄)</p>
                 </div>
 
                 <div class="stat-item">
-                    <h2>10k+</h2>
-                    <p>Container</p>
+                    <h2>3 Jahre</h2>
+                    <p>Entwicklung & Testing</p>
                 </div>
 
                 <div class="stat-item">
-                    <h2>99,9%</h2>
-                    <p>Verfügbarkeit</p>
+                    <h2>∞</h2>
+                    <p>Motivation & Passion</p>
+                </div>
+
+                <div class="stat-item">
+                    <h2>100%</h2>
+                    <p>Made in Germany</p>
+                </div>
+
+                <div class="stat-item">
+                    <h2>0€</h2>
+                    <p>Versteckte Gebühren</p>
                 </div>
 
                 <div class="stat-item">
                     <h2>24/7</h2>
-                    <p>Support</p>
-                </div>
-
-                <div class="stat-item">
-                    <h2>6</h2>
-                    <p>Länder</p>
-                </div>
-
-                <div class="stat-item">
-                    <h2>4.9★</h2>
-                    <p>Bewertung</p>
+                    <p>Erreichbar für Support</p>
                 </div>
             </div>
         </div>
 
-        <!-- TEAM SECTION -->
-        <h2 class="section-title" style="margin-top: 60px;">Unser Team</h2>
-
-        <div class="team-grid">
-            <div class="team-member">
-                <div class="member-avatar">👨‍💼</div>
-                <h3>Max Mueller</h3>
-                <div class="role">CEO & Founder</div>
-                <p>Ehemaliger Logistik-Manager. Sah das Problem und baute die Lösung. Passioniert für Effizienz.</p>
-            </div>
-
-            <div class="team-member">
-                <div class="member-avatar">👩‍💻</div>
-                <h3>Sarah Schmidt</h3>
-                <div class="role">CTO & Co-Founder</div>
-                <p>Full-Stack Developer mit 10+ Jahren Erfahrung. Liebt gutes Code-Design und Skalierbarkeit.</p>
-            </div>
-
-            <div class="team-member">
-                <div class="member-avatar">👨‍🎨</div>
-                <h3>Tom Weber</h3>
-                <div class="role">Design Lead</div>
-                <p>UI/UX Designer. Glaubt, dass schönes Design mit großartiger Funktionalität einhergehen muss.</p>
-            </div>
-
-            <div class="team-member">
-                <div class="member-avatar">👩‍🔬</div>
-                <h3>Lisa Johnson</h3>
-                <div class="role">Product Manager</div>
-                <p>Strateg mit Blick für Details. Setzt Kundenneeds in Features um. Data-driven Mindset.</p>
-            </div>
-
-            <div class="team-member">
-                <div class="member-avatar">👨‍🚀</div>
-                <h3>Peter Klein</h3>
-                <div class="role">Operations Manager</div>
-                <p>Meister der Logistik und Prozessoptimierung. Macht alles am Laufen.</p>
-            </div>
-
-            <div class="team-member">
-                <div class="member-avatar">👩‍⚕️</div>
-                <h3>Anna Fischer</h3>
-                <div class="role">Customer Success</div>
-                <p>Deine erste Anlaufstelle. Kümmert sich um Onboarding und dass du mit Container Pro erfolgreich bist.
-                </p>
-            </div>
+        <!-- WARUM ICH -->
+        <div style="max-width: 800px; margin: 80px auto; padding: 40px; background: white; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+            <h2 style="color: #0d47a1; margin-bottom: 20px;">Warum solltest du Coltivo wählen?</h2>
+            <p style="color: #666; line-height: 1.8; margin-bottom: 15px;">
+                Weil ich nicht nur eine Software verkaufe, sondern ein Problem lösen möchte. Ich bin persönlich investiert. Wenn dein Geschäft besser läuft durch Coltivo, freue ich mich.
+            </p>
+            <p style="color: #666; line-height: 1.8; margin-bottom: 15px;">
+                Du bekommst nicht irgendeine Software von einem großen Konzern mit undurchschaubaren Zielen. Du bekommst ein Produkt von jemandem, der die Schmerzen versteht, die er löst.
+            </p>
+            <p style="color: #666; line-height: 1.8;">
+                Und wenn etwas nicht funktioniert? Du schreibst mir eine E-Mail, und ich antwore persönlich. Keine Support-Tier, keine Warteschlange. Nur ehrliche, schnelle Hilfe.
+            </p>
         </div>
 
-        <!-- CTA SECTION -->
-        <div
-            style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 60px 20px; border-radius: 8px; text-align: center; margin-top: 60px;">
-            <h2 style="font-size: 36px; margin-bottom: 20px;">Bereit, mit uns zu wachsen?</h2>
-            <p style="font-size: 18px; margin-bottom: 30px;">Trete Container Pro bei und optimiere deine
-                Abfallwirtschaft heute.</p>
-            <a href="demo.html" class="btn">Kostenlos testen</a>
+        <!-- CONTACT CTA -->
+        <div class="contact-cta">
+            <h3>Lass uns reden</h3>
+            <p>Du hast Fragen zur Geschichte? Kritik? Ideen? Ich antworte auf jede E-Mail persönlich.</p>
+            <a href="contact.html" class="btn">Kontakt aufnehmen</a>
         </div>
     </div>
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Container Pro. Alle Rechte vorbehalten. | <a href="#">Impressum</a> | <a href="#">Datenschutz</a>
-        </p>
+        <p>&copy; 2026 Coltivo. Alle Rechte vorbehalten. | <a href="#">Impressum</a> | <a href="#">Datenschutz</a></p>
     </footer>
 
     <script src="script.js"></script>
 </body>
-
 </html>

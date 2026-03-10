@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Container Pro - Professionelle Entsorgungslösungen</title>
+    <title>Coltivo - Container Management Software</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         .hero {
@@ -12,7 +11,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, #0d47a1 0%, #1e7e34 100%);
             color: white;
             padding: 40px 20px;
             text-align: center;
@@ -75,28 +74,119 @@
         }
 
         .feature-card h3 {
-            color: var(--primary);
+            color: #0d47a1;
             margin-bottom: 15px;
         }
 
         .feature-card p {
             color: #666;
         }
+
+        .pricing-preview {
+            background: #f5f5f5;
+            padding: 60px 20px;
+            margin-top: 60px;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-top: 4px solid #0d47a1;
+            transition: transform 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pricing-card.featured {
+            border-top: 4px solid #ff9800;
+            transform: scale(1.05);
+        }
+
+        .pricing-card h3 {
+            color: #0d47a1;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 48px;
+            font-weight: 700;
+            color: #ff9800;
+            margin: 20px 0;
+        }
+
+        .price-subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            text-align: left;
+            margin: 30px 0;
+            color: #666;
+        }
+
+        .pricing-card li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .pricing-card li::before {
+            content: "✓ ";
+            color: #1e7e34;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #0d47a1, #1e7e34);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .cta-section h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
     </style>
 </head>
-
 <body>
     <!-- NAVIGATION -->
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo">🚀 Container Pro</a>
+            <a href="index.html" class="logo">📦 Coltivo</a>
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="news.html">News</a></li>
-                <li><a href="calculator.html">Preiscalculator</a></li>
+                <li><a href="calculator.html">Pricing</a></li>
                 <li><a href="demo.html">Demo</a></li>
-                <li><a href="video.html">Video</a></li>
-                <li><a href="about.html">Über uns</a></li>
+                <li><a href="video.html">Tutorial</a></li>
+                <li><a href="about.html">Über mich</a></li>
                 <li><a href="contact.html">Kontakt</a></li>
             </ul>
         </div>
@@ -105,28 +195,28 @@
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Professionelle Container für jeden Bedarf</h1>
-            <p>Entsorgung, Recycling & Lagerung – schnell, zuverlässig und günstig</p>
-
-            <a href="demo.html" class="btn">Jetzt Demo anfordern</a>
-            <a href="calculator.html" class="btn btn-secondary">Preis berechnen</a>
+            <h1>Container Management Software für Unternehmen</h1>
+            <p>Verwalten Sie Ihre Container effizient. Echtzeitüberwachung, Routen-Optimierung, Team-Management — alles in einer Plattform.</p>
+            
+            <a href="demo.html" class="btn">24h Demo testen</a>
+            <a href="calculator.html" class="btn btn-secondary">Pricing anschauen</a>
 
             <div class="hero-icons">
                 <div class="icon-box">
-                    <span class="icon">🗑️</span>
-                    <span>Altkleider</span>
-                </div>
-                <div class="icon-box">
-                    <span class="icon">♻️</span>
-                    <span>Recycling</span>
-                </div>
-                <div class="icon-box">
                     <span class="icon">📦</span>
-                    <span>Lagerlösungen</span>
+                    <span>Container Tracking</span>
                 </div>
                 <div class="icon-box">
-                    <span class="icon">⚡</span>
-                    <span>Schnelle Lieferung</span>
+                    <span class="icon">🗺️</span>
+                    <span>Routen-Optimierung</span>
+                </div>
+                <div class="icon-box">
+                    <span class="icon">👥</span>
+                    <span>Team Management</span>
+                </div>
+                <div class="icon-box">
+                    <span class="icon">📊</span>
+                    <span>Echtzeit-Reports</span>
                 </div>
             </div>
         </div>
@@ -134,54 +224,113 @@
 
     <!-- FEATURES SECTION -->
     <div class="container">
-        <h2 class="section-title">Warum Container Pro?</h2>
-
+        <h2 class="section-title">Warum Coltivo?</h2>
+        
         <div class="features">
             <div class="feature-card">
-                <div style="font-size: 48px; margin-bottom: 15px;">💰</div>
-                <h3>Beste Preise</h3>
-                <p>Transparent und fair kalkuliert. Keine versteckten Gebühren, nur ehrliche Preise.</p>
+                <div style="font-size: 48px; margin-bottom: 15px;">📍</div>
+                <h3>Echtzeit Tracking</h3>
+                <p>Überwachen Sie den Status und Standort aller Container in Echtzeit. Wissen Sie immer genau, wo sich Ihre Assets befinden.</p>
             </div>
 
             <div class="feature-card">
                 <div style="font-size: 48px; margin-bottom: 15px;">🚚</div>
-                <h3>Schnelle Lieferung</h3>
-                <p>Container innerhalb von 24-48 Stunden. Flexible Abholtermine, die zu dir passen.</p>
+                <h3>Route Optimization</h3>
+                <p>Sparen Sie bis zu 40% in Transportkosten. Unsere AI optimiert automatisch die effizientesten Routen für deine Flotte.</p>
             </div>
 
             <div class="feature-card">
-                <div style="font-size: 48px; margin-bottom: 15px;">📱</div>
-                <h3>Einfache Verwaltung</h3>
-                <p>Dashboard mit Überblick. Verwalte alle Container an einem Ort, jederzeit abrufbar.</p>
-            </div>
-
-            <div class="feature-card">
-                <div style="font-size: 48px; margin-bottom: 15px;">🌍</div>
-                <h3>Nachhaltig</h3>
-                <p>Umweltgerechte Entsorgung und Recycling. Wir kümmern uns um den Rest.</p>
-            </div>
-
-            <div class="feature-card">
-                <div style="font-size: 48px; margin-bottom: 15px;">🤝</div>
-                <h3>Support 24/7</h3>
-                <p>Dein Team ist immer erreichbar. Fragen? Probleme? Wir sind für dich da.</p>
+                <div style="font-size: 48px; margin-bottom: 15px;">👨‍💼</div>
+                <h3>Team Management</h3>
+                <p>Verwalten Sie Fahrer, Zugriffsrechte und Arbeitszeiten zentral. Granulare Kontrolloptionen für volle Transparenz.</p>
             </div>
 
             <div class="feature-card">
                 <div style="font-size: 48px; margin-bottom: 15px;">📊</div>
-                <h3>Berichte & Analytics</h3>
-                <p>Detaillierte Übersichten und Reports. Perfekt für Buchhaltung und Planung.</p>
+                <h3>Analytics & Reports</h3>
+                <p>Detaillierte Analysen über Container-Auslastung, Kosten und Effizienz. Datengetriebene Entscheidungen treffen.</p>
+            </div>
+
+            <div class="feature-card">
+                <div style="font-size: 48px; margin-bottom: 15px;">🔐</div>
+                <h3>Sicherheit & DSGVO</h3>
+                <p>Deine Daten sind sicher. Verschlüsselt in deutschen Rechenzentren, ISO 27001 zertifiziert, DSGVO-konform.</p>
+            </div>
+
+            <div class="feature-card">
+                <div style="font-size: 48px; margin-bottom: 15px;">⚡</div>
+                <h3>Schnelle Integration</h3>
+                <p>REST API für einfache Integration in deine bestehenden Systeme. In wenigen Minuten einsatzbereit.</p>
             </div>
         </div>
     </div>
 
+    <!-- PRICING PREVIEW -->
+    <div class="pricing-preview">
+        <div class="container">
+            <h2 class="section-title">Transparente Preise</h2>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">€100</div>
+                    <div class="price-subtitle">pro Monat</div>
+                    <ul>
+                        <li>Bis zu 50 Container</li>
+                        <li>Basis Tracking</li>
+                        <li>3 Team Member</li>
+                        <li>Email Support</li>
+                    </ul>
+                    <a href="calculator.html" class="btn">Details anschauen</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <h3>Pro</h3>
+                    <div class="price">€400</div>
+                    <div class="price-subtitle">pro Monat</div>
+                    <ul>
+                        <li>Bis zu 200 Container</li>
+                        <li>Advanced Analytics</li>
+                        <li>Unbegrenzte Team Member</li>
+                        <li>24/7 Priority Support</li>
+                        <li>API Access</li>
+                    </ul>
+                    <a href="calculator.html" class="btn">Pro Plan starten</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">Custom</div>
+                    <div class="price-subtitle">maßgeschneiderte Lösung</div>
+                    <ul>
+                        <li>Unbegrenzte Container</li>
+                        <li>Custom Features</li>
+                        <li>Dedizierter Support</li>
+                        <li>On-Premise Option</li>
+                        <li>SLA Garantie</li>
+                    </ul>
+                    <a href="contact.html" class="btn">Angebot anfordern</a>
+                </div>
+            </div>
+
+            <p style="text-align: center; color: #666; margin-top: 40px;">
+                Alle Pläne beinhalten: SSL-Verschlüsselung, tägliche Backups, DSGVO-Compliance, 99,9% Uptime-Garantie
+            </p>
+        </div>
+    </div>
+
+    <!-- CTA SECTION -->
+    <div class="cta-section">
+        <h2>Bereit durchzustarten?</h2>
+        <p>Testen Sie Coltivo kostenlos für 24 Stunden. Kein Zahlungsdetails erforderlich, keine Installation nötig.</p>
+        <a href="demo.html" class="btn">Kostenlose Demo starten</a>
+    </div>
+
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Container Pro. Alle Rechte vorbehalten. | <a href="#">Impressum</a> | <a href="#">Datenschutz</a>
-        </p>
+        <p>&copy; 2026 Coltivo. Alle Rechte vorbehalten. | <a href="#">Impressum</a> | <a href="#">Datenschutz</a></p>
     </footer>
 
     <script src="script.js"></script>
 </body>
-
 </html>
