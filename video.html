@@ -91,45 +91,6 @@
             padding: 40px 20px;
             margin-top: 60px;
         }
-
-        .faq-item {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .faq-item h4 {
-            color: #0d47a1;
-            margin-bottom: 10px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-        }
-
-        .faq-item h4::after {
-            content: '▼';
-            font-size: 12px;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item h4.open::after {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            color: #666;
-            line-height: 1.6;
-            display: none;
-            margin-top: 10px;
-        }
-
-        .faq-answer.show {
-            display: block;
-        }
     </style>
 </head>
 <body>
@@ -235,16 +196,9 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Coltivo. Alle Rechte vorbehalten. | <a href="#">Impressum</a> | <a href="#">Datenschutz</a></p>
+        <p>&copy; 2026 Coltivo. Alle Rechte vorbehalten. | <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
     </footer>
 
-    <script>
-        function toggleFaq(element) {
-            const answer = element.nextElementSibling;
-            answer.classList.toggle('show');
-            element.classList.toggle('open');
-        }
-    </script>
     <script src="script.js"></script>
 </body>
 </html>

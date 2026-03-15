@@ -185,6 +185,68 @@ footer a {
     }
 }
 
+/* SUCCESS MESSAGE */
+.success-message {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    padding: 20px;
+    border-radius: 4px;
+    text-align: center;
+    display: none;
+    margin-bottom: 20px;
+    animation: slideIn 0.3s ease;
+}
+
+.success-message.show {
+    display: block;
+}
+
+.success-message h3 {
+    margin-bottom: 10px;
+    color: #155724;
+}
+
+/* FAQ */
+.faq-item {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.faq-item h4 {
+    color: #0d47a1;
+    margin-bottom: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+}
+
+.faq-item h4::after {
+    content: '▼';
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.faq-item h4.open::after {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    color: #666;
+    line-height: 1.6;
+    display: none;
+    margin-top: 10px;
+}
+
+.faq-answer.show {
+    display: block;
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .nav-links {
