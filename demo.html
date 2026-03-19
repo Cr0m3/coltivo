@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>24h Demo - Coltivo</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="translations.js"></script>
     <style>
         .demo-container {
             max-width: 600px;
@@ -138,55 +139,64 @@
                 <li><a href="calculator.html">Pricing</a></li>
                 <li><a href="demo.html" class="active">Demo</a></li>
                 <li><a href="video.html">Tutorial</a></li>
-                <li><a href="about.html">Über mich</a></li>
-                <li><a href="contact.html">Kontakt</a></li>
+                <li><a href="about.html" data-i18n="nav_about">Über mich</a></li>
+                <li><a href="contact.html" data-i18n="nav_contact">Kontakt</a></li>
+                <li>
+                    <div class="lang-switcher">
+                        <button class="lang-btn" data-lang="de" onclick="setLang('de')">DE</button>
+                        <span class="lang-sep">|</span>
+                        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+                        <span class="lang-sep">|</span>
+                        <button class="lang-btn" data-lang="cs" onclick="setLang('cs')">CS</button>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
 
     <!-- DEMO SECTION -->
     <div class="container">
-        <h2 class="section-title">🎁 24-Stunden Demo</h2>
-        
+        <h2 class="section-title" data-i18n="demo_title">🎁 24-Stunden Demo</h2>
+
         <div class="demo-container">
-            <h2>Teste Coltivo kostenlos</h2>
-            <p class="subtitle">Vollzugriff für 24 Stunden. Keine Kreditkarte erforderlich.</p>
+            <h2 data-i18n="demo_heading">Teste Coltivo kostenlos</h2>
+            <p class="subtitle" data-i18n="demo_subtitle">Vollzugriff für 24 Stunden. Keine Kreditkarte erforderlich.</p>
 
             <div id="successMessage" class="success-message">
-                <h3>✅ Demo-Account erfolgreich erstellt!</h3>
-                <p>Deine Zugangsdaten wurden an <strong id="confirmedEmail"></strong> gesendet.</p>
+                <h3 data-i18n="demo_success_title">✅ Demo-Account erfolgreich erstellt!</h3>
+                <p><span data-i18n="demo_sent_prefix">Deine Zugangsdaten wurden an </span><strong id="confirmedEmail"></strong><span data-i18n="demo_sent_suffix"> gesendet.</span></p>
 
                 <div style="background:#e8f5e9;border:1px solid #a5d6a7;border-radius:6px;padding:16px;margin:20px 0;text-align:left;">
-                    <p style="margin:0 0 8px;color:#2e7d32;font-weight:600;">📧 Bitte prüfe dein E-Mail-Postfach</p>
-                    <p style="margin:0;color:#388e3c;font-size:14px;">Du erhältst in wenigen Minuten eine E-Mail mit deinem Benutzernamen und Passwort. Schau auch im Spam-Ordner nach, falls die E-Mail nicht ankommt.</p>
+                    <p style="margin:0 0 8px;color:#2e7d32;font-weight:600;" data-i18n="demo_email_check_title">📧 Bitte prüfe dein E-Mail-Postfach</p>
+                    <p style="margin:0;color:#388e3c;font-size:14px;" data-i18n="demo_email_check_body">Du erhältst in wenigen Minuten eine E-Mail mit deinem Benutzernamen und Passwort. Schau auch im Spam-Ordner nach, falls die E-Mail nicht ankommt.</p>
                 </div>
 
-                <div class="timer" id="timer">
+                <div class="timer" id="timer" data-i18n="demo_timer_init">
                     ⏰ Demo verfällt in: 24:00:00
                 </div>
 
                 <p style="margin-top: 20px; text-align: center; color: #666; font-size: 14px;">
-                    <strong>Demo-Account Details:</strong><br>
-                    Vollzugriff auf alle Features • 10 Demo-Container • 5 Team-Mitglieder
+                    <strong data-i18n="demo_account_details">Demo-Account Details:</strong><br>
+                    <span data-i18n="demo_account_desc">Vollzugriff auf alle Features • 10 Demo-Container • 5 Team-Mitglieder</span>
                 </p>
 
-                <a href="https://app.coltivo.de/login" class="btn" style="width: 100%; text-align: center; margin-top: 20px;" target="_blank">
+                <a href="https://app.coltivo.de/login" class="btn" style="width: 100%; text-align: center; margin-top: 20px;" target="_blank" data-i18n="demo_login_btn">
                     Jetzt Login
                 </a>
             </div>
 
             <div id="formContainer">
-                <div class="badge-demo">
+                <div class="badge-demo" data-i18n="demo_instant_badge">
                     ⚡ Sofortiger Zugang - keine Bestätigung nötig
                 </div>
 
-                <div class="form-note">
+                <div class="form-note" data-i18n="demo_form_note">
                     💡 Nach dem Erstellen erhältst du sofort deine Login-Daten und kannst dich anmelden. Der Account ist automatisch 24 Stunden aktiv.
                 </div>
 
                 <form onsubmit="createDemoAccount(event)">
                     <div class="form-group">
-                        <label for="demoName">Dein Name <span class="required-field">*</span></label>
+                        <label for="demoName"><span data-i18n="demo_label_name">Dein Name</span> <span class="required-field">*</span></label>
                         <input type="text" id="demoName" required>
                     </div>
 
@@ -196,24 +206,24 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="demoCompany">Dein Unternehmen <span class="required-field">*</span></label>
-                        <input type="text" id="demoCompany" required placeholder="z.B. Meine GmbH">
+                        <label for="demoCompany"><span data-i18n="demo_label_company">Dein Unternehmen</span> <span class="required-field">*</span></label>
+                        <input type="text" id="demoCompany" required data-i18n-placeholder="demo_placeholder_company" placeholder="z.B. Meine GmbH">
                     </div>
 
                     <div class="form-group">
-                        <label for="demoPhone">Telefon (optional)</label>
+                        <label for="demoPhone" data-i18n="demo_label_phone">Telefon (optional)</label>
                         <input type="tel" id="demoPhone" placeholder="+49 123 456789">
                     </div>
 
                     <div class="form-group">
-                        <label for="demoMessage">Wie viele Container hast du ungefähr? (optional)</label>
-                        <input type="text" id="demoMessage" placeholder="z.B. 50-100">
+                        <label for="demoMessage" data-i18n="demo_label_containers">Wie viele Container hast du ungefähr? (optional)</label>
+                        <input type="text" id="demoMessage" data-i18n-placeholder="demo_placeholder_containers" placeholder="z.B. 50-100">
                     </div>
 
-                    <button type="submit" class="btn" style="width: 100%; text-align: center;">Demo-Account erstellen</button>
+                    <button type="submit" class="btn" style="width: 100%; text-align: center;" data-i18n="demo_submit_btn">Demo-Account erstellen</button>
                 </form>
 
-                <p style="text-align: center; color: #666; margin-top: 20px; font-size: 12px;">
+                <p style="text-align: center; color: #666; margin-top: 20px; font-size: 12px;" data-i18n-html="demo_privacy_note">
                     Mit dem Erstellen des Demo-Accounts stimmst du unserer <a href="datenschutz.html" style="color: #0d47a1;">Datenschutzerklärung</a> zu.
                 </p>
             </div>
@@ -221,86 +231,86 @@
 
         <!-- BENEFITS SECTION -->
         <div style="margin-top: 60px;">
-            <h3 style="text-align: center; color: #0d47a1; margin-bottom: 40px;">Was bekommst du in der 24h Demo?</h3>
-            
+            <h3 style="text-align: center; color: #0d47a1; margin-bottom: 40px;" data-i18n="demo_benefits_title">Was bekommst du in der 24h Demo?</h3>
+
             <div class="benefits-grid">
                 <div class="benefit-item">
                     <div style="font-size: 36px; margin-bottom: 10px;">📦</div>
                     <h4>10 Demo-Container</h4>
-                    <p>Mit realistischen Daten zum Testen der Verwaltung</p>
+                    <p data-i18n="demo_ben1_desc">Mit realistischen Daten zum Testen der Verwaltung</p>
                 </div>
 
                 <div class="benefit-item">
                     <div style="font-size: 36px; margin-bottom: 10px;">👥</div>
-                    <h4>5 Team-Mitglieder</h4>
-                    <p>Zum Testen der Team-Verwaltung</p>
+                    <h4 data-i18n="demo_ben2_title">5 Team-Mitglieder</h4>
+                    <p data-i18n="demo_ben2_desc">Zum Testen der Team-Verwaltung</p>
                 </div>
 
                 <div class="benefit-item">
                     <div style="font-size: 36px; margin-bottom: 10px;">🗺️</div>
-                    <h4>Routen-Optimierung</h4>
-                    <p>Vollständig funktionsfähig</p>
+                    <h4 data-i18n="demo_ben3_title">Routen-Optimierung</h4>
+                    <p data-i18n="demo_ben3_desc">Vollständig funktionsfähig</p>
                 </div>
 
                 <div class="benefit-item">
                     <div style="font-size: 36px; margin-bottom: 10px;">📊</div>
                     <h4>Analytics & Reports</h4>
-                    <p>Alle Analyse-Features verfügbar</p>
+                    <p data-i18n="demo_ben4_desc">Alle Analyse-Features verfügbar</p>
                 </div>
 
                 <div class="benefit-item">
                     <div style="font-size: 36px; margin-bottom: 10px;">🔒</div>
                     <h4>API Access</h4>
-                    <p>Test-API-Keys inklusive</p>
+                    <p data-i18n="demo_ben5_desc">Test-API-Keys inklusive</p>
                 </div>
 
                 <div class="benefit-item">
                     <div style="font-size: 36px; margin-bottom: 10px;">📱</div>
                     <h4>Mobile App</h4>
-                    <p>Voller Zugriff auf alle Apps</p>
+                    <p data-i18n="demo_ben6_desc">Voller Zugriff auf alle Apps</p>
                 </div>
             </div>
         </div>
 
         <!-- FAQ SECTION -->
         <div style="max-width: 800px; margin: 80px auto 0;">
-            <h3 style="text-align: center; color: #0d47a1; margin-bottom: 30px;">Fragen zur Demo?</h3>
-            
+            <h3 style="text-align: center; color: #0d47a1; margin-bottom: 30px;" data-i18n="demo_faq_title">Fragen zur Demo?</h3>
+
             <div class="faq-item">
-                <h4 onclick="toggleFaq(this)">Wie lange dauert es, den Demo-Account zu erstellen?</h4>
-                <div class="faq-answer">Sofort! Nachdem du das Formular abgesendet hast, erhältst du deine Login-Daten innerhalb von Sekunden.</div>
+                <h4 onclick="toggleFaq(this)" data-i18n="demo_faq1_q">Wie lange dauert es, den Demo-Account zu erstellen?</h4>
+                <div class="faq-answer" data-i18n="demo_faq1_a">Sofort! Nachdem du das Formular abgesendet hast, erhältst du deine Login-Daten innerhalb von Sekunden.</div>
             </div>
 
             <div class="faq-item">
-                <h4 onclick="toggleFaq(this)">Kann ich eine Kreditkarte hinzufügen?</h4>
-                <div class="faq-answer">Nein, für die Demo ist keine Kreditkarte nötig. Du hast vollen Zugriff ohne Zahlungsmittel.</div>
+                <h4 onclick="toggleFaq(this)" data-i18n="demo_faq2_q">Kann ich eine Kreditkarte hinzufügen?</h4>
+                <div class="faq-answer" data-i18n="demo_faq2_a">Nein, für die Demo ist keine Kreditkarte nötig. Du hast vollen Zugriff ohne Zahlungsmittel.</div>
             </div>
 
             <div class="faq-item">
-                <h4 onclick="toggleFaq(this)">Was passiert nach 24 Stunden?</h4>
-                <div class="faq-answer">Der Account wird automatisch deaktiviert. Du erhältst eine E-Mail mit der Möglichkeit, zu einem bezahlten Plan zu upgraden.</div>
+                <h4 onclick="toggleFaq(this)" data-i18n="demo_faq3_q">Was passiert nach 24 Stunden?</h4>
+                <div class="faq-answer" data-i18n="demo_faq3_a">Der Account wird automatisch deaktiviert. Du erhältst eine E-Mail mit der Möglichkeit, zu einem bezahlten Plan zu upgraden.</div>
             </div>
 
             <div class="faq-item">
-                <h4 onclick="toggleFaq(this)">Kann ich die Demo verlängern?</h4>
-                <div class="faq-answer">Ja, kontaktiere uns unter contact.html. Wir können dir eine zusätzliche Demo-Zeit geben oder schneller zum Plan upgraden.</div>
+                <h4 onclick="toggleFaq(this)" data-i18n="demo_faq4_q">Kann ich die Demo verlängern?</h4>
+                <div class="faq-answer" data-i18n="demo_faq4_a">Ja, kontaktiere uns unter contact.html. Wir können dir eine zusätzliche Demo-Zeit geben oder schneller zum Plan upgraden.</div>
             </div>
 
             <div class="faq-item">
-                <h4 onclick="toggleFaq(this)">Kann ich meine Demo-Daten behalten?</h4>
-                <div class="faq-answer">Leider nicht. Demo-Accounts werden nach 24 Stunden komplett gelöscht. Starten Sie einfach mit einem bezahlten Plan.</div>
+                <h4 onclick="toggleFaq(this)" data-i18n="demo_faq5_q">Kann ich meine Demo-Daten behalten?</h4>
+                <div class="faq-answer" data-i18n="demo_faq5_a">Leider nicht. Demo-Accounts werden nach 24 Stunden komplett gelöscht. Starten Sie einfach mit einem bezahlten Plan.</div>
             </div>
 
             <div class="faq-item">
-                <h4 onclick="toggleFaq(this)">Brauche ich eine Beratung?</h4>
-                <div class="faq-answer">Nein, aber wir können helfen! Kontaktiere unseren Support während der Demo - sie helfen dir gerne weiter.</div>
+                <h4 onclick="toggleFaq(this)" data-i18n="demo_faq6_q">Brauche ich eine Beratung?</h4>
+                <div class="faq-answer" data-i18n="demo_faq6_a">Nein, aber wir können helfen! Kontaktiere unseren Support während der Demo - sie helfen dir gerne weiter.</div>
             </div>
         </div>
     </div>
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Coltivo. Alle Rechte vorbehalten. | <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
+        <p><span data-i18n="footer_copy">&copy; 2026 Coltivo. Alle Rechte vorbehalten.</span> | <a href="impressum.html" data-i18n="footer_imprint">Impressum</a> | <a href="datenschutz.html" data-i18n="footer_privacy">Datenschutz</a></p>
     </footer>
 
     <script>
@@ -312,7 +322,7 @@
             const submitBtn = event.target.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerText;
             submitBtn.disabled = true;
-            submitBtn.innerText = '⏳ Wird erstellt...';
+            submitBtn.innerText = t('demo_js_creating');
 
             const name = document.getElementById('demoName').value;
             const email = document.getElementById('demoEmailInput').value;
@@ -352,7 +362,7 @@
                 secondsLeft--;
                 if (secondsLeft <= 0) {
                     clearInterval(interval);
-                    document.getElementById('timer').innerText = '⏰ Demo abgelaufen';
+                    document.getElementById('timer').innerText = t('demo_js_expired');
                     return;
                 }
                 const hours = Math.floor(secondsLeft / 3600);
@@ -360,7 +370,7 @@
                 const seconds = secondsLeft % 60;
 
                 document.getElementById('timer').innerText =
-                    `⏰ Demo verfällt in: ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                    `${t('demo_js_expires_in')}${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
             }, 1000);
         }
     </script>

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Über mich - Coltivo</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="translations.js"></script>
     <style>
         .about-hero {
             background: linear-gradient(135deg, #0d47a1 0%, #1e7e34 100%);
@@ -211,16 +212,25 @@
                 <li><a href="calculator.html">Pricing</a></li>
                 <li><a href="demo.html">Demo</a></li>
                 <li><a href="video.html">Tutorial</a></li>
-                <li><a href="about.html" class="active">Über mich</a></li>
-                <li><a href="contact.html">Kontakt</a></li>
+                <li><a href="about.html" class="active" data-i18n="nav_about">Über mich</a></li>
+                <li><a href="contact.html" data-i18n="nav_contact">Kontakt</a></li>
+                <li>
+                    <div class="lang-switcher">
+                        <button class="lang-btn" data-lang="de" onclick="setLang('de')">DE</button>
+                        <span class="lang-sep">|</span>
+                        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+                        <span class="lang-sep">|</span>
+                        <button class="lang-btn" data-lang="cs" onclick="setLang('cs')">CS</button>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
 
     <!-- ABOUT HERO -->
     <div class="about-hero">
-        <h1>Die Geschichte von Coltivo</h1>
-        <p>Eine Solo-Mission: Bessere Software für Container-Management. Gebaut mit ❤️ in Deutschland.</p>
+        <h1 data-i18n="about_hero_title">Die Geschichte von Coltivo</h1>
+        <p data-i18n="about_hero_sub">Eine Solo-Mission: Bessere Software für Container-Management. Gebaut mit ❤️ in Deutschland.</p>
     </div>
 
     <!-- FOUNDER STORY -->
@@ -228,28 +238,28 @@
         <div class="founder-section">
             <div class="founder-photo">👨‍💻</div>
             <div class="founder-story">
-                <h2>Hi, ich bin Lubos</h2>
-                <p>
+                <h2 data-i18n="about_founder_title">Hi, ich bin Lubos</h2>
+                <p data-i18n="about_founder_p1">
                     Ich bin ein Systeminformatiker aus Deutschland. Vor ein paar Jahren merkte ich, dass Unternehmen
                     keine gute Software für die Container-Verwaltung hatten. Die meisten nutzen noch Excel-Tabellen oder
                     veraltete On-Premise Systeme.
                 </p>
-                <p>
+                <p data-i18n-html="about_founder_p2">
                     Das nervte mich. Also beschloss ich, selbst eine Lösung zu bauen: <strong>Coltivo</strong>.
                 </p>
 
-                <div class="story-highlight">
+                <div class="story-highlight" data-i18n-html="about_highlight">
                     <strong>Das Ziel:</strong> Eine moderne, cloudbasierte Container-Management Software für kleine und
                     mittlere Unternehmen im deutschsprachigen Raum. Einfach zu bedienen, fair im Preis, und ehrlich in
                     der Kommunikation.
                 </div>
 
-                <p>
+                <p data-i18n-html="about_founder_p3">
                     Coltivo ist ein Soloprojekt. Aktuell gibt es keine weiteren Team-Member. Das bedeutet:
                     <strong>schnelle Entscheidungen, direkter Kundenkontakt, und ehrliche Feature-Entwicklung</strong>.
                 </p>
 
-                <p>
+                <p data-i18n="about_founder_p4">
                     Ich arbeite von Deutschland aus und konzentriere mich auf die deutschsprachigen Märkte (DE, AT, CH).
                     Lokales Verständnis für lokale Probleme.
                 </p>
@@ -257,91 +267,88 @@
         </div>
 
         <!-- STORY TIMELINE -->
-        <h2 class="section-title">Der Weg zu Coltivo</h2>
+        <h2 class="section-title" data-i18n="about_timeline_title">Der Weg zu Coltivo</h2>
 
         <div class="timeline">
             <div class="timeline-item">
                 <div class="year">2023</div>
-                <h4>Die Idee</h4>
-                <p>Ich sah das Problem bei mehreren Unternehmen: keine anständige Container-Management Software. Excel,
+                <h4 data-i18n="about_2023_title">Die Idee</h4>
+                <p data-i18n="about_2023_body">Ich sah das Problem bei mehreren Unternehmen: keine anständige Container-Management Software. Excel,
                     Zettelwirtschaft, ineffiziente Routen. Ich dachte: "Das kann ich besser machen."</p>
             </div>
 
             <div class="timeline-item">
                 <div class="year">2024</div>
-                <h4>Version 1.0 gelauncht</h4>
-                <p>Nach 6 Monaten Entwicklung: Erste funktionierende Version mit Tracking, Team Management und Basic
+                <h4 data-i18n="about_2024_title">Version 1.0 gelauncht</h4>
+                <p data-i18n="about_2024_body">Nach 6 Monaten Entwicklung: Erste funktionierende Version mit Tracking, Team Management und Basic
                     Analytics. MVP (Minimum Viable Product) fertig.</p>
             </div>
 
             <div class="timeline-item">
                 <div class="year">2025</div>
                 <h4>Route Optimization & AI</h4>
-                <p>Entwicklung der automatischen Routen-Optimierung. Das sparte Kunden echtes Geld (bis zu 40%
+                <p data-i18n="about_2025_body">Entwicklung der automatischen Routen-Optimierung. Das sparte Kunden echtes Geld (bis zu 40%
                     Transportkosten). Huge Win.</p>
             </div>
 
             <div class="timeline-item">
                 <div class="year">2026</div>
-                <h4>Heute: Jetzt geht's los</h4>
-                <p>Coltivo ist produktionsbereit. Marketing-Website live. Bereit für die erste Welle von Kunden. Du bist
+                <h4 data-i18n="about_2026_title">Heute: Jetzt geht's los</h4>
+                <p data-i18n="about_2026_body">Coltivo ist produktionsbereit. Marketing-Website live. Bereit für die erste Welle von Kunden. Du bist
                     am Anfang einer Journey dabei.</p>
             </div>
         </div>
 
         <!-- VALUES -->
         <div class="values-section">
-            <h2 class="section-title">Meine Werte</h2>
+            <h2 class="section-title" data-i18n="about_values_title">Meine Werte</h2>
 
             <div class="values-grid">
                 <div class="value-card">
-                    <h3>🎯 Ehrlichkeit</h3>
-                    <p>Keine Versprechen, die ich nicht halten kann. Keine Fake-Metrics. Ich sage, was funktioniert und
-                        was nicht.</p>
+                    <h3 data-i18n="about_val1_title">🎯 Ehrlichkeit</h3>
+                    <p data-i18n="about_val1_desc">Keine Versprechen, die ich nicht halten kann. Keine Fake-Metrics. Ich sage, was funktioniert und was nicht.</p>
                 </div>
 
                 <div class="value-card">
-                    <h3>⚡ Schnelligkeit</h3>
-                    <p>Als Solo-Founder kann ich schnell entscheiden und iterieren. Feature-Requests? Direkt mit mir
-                        besprechen.</p>
+                    <h3 data-i18n="about_val2_title">⚡ Schnelligkeit</h3>
+                    <p data-i18n="about_val2_desc">Als Solo-Founder kann ich schnell entscheiden und iterieren. Feature-Requests? Direkt mit mir besprechen.</p>
                 </div>
 
                 <div class="value-card">
-                    <h3>💡 Kundenzentriert</h3>
-                    <p>Ich baue Features, die echte Probleme lösen. Nicht was ich denke, sondern was du brauchst.</p>
+                    <h3 data-i18n="about_val3_title">💡 Kundenzentriert</h3>
+                    <p data-i18n="about_val3_desc">Ich baue Features, die echte Probleme lösen. Nicht was ich denke, sondern was du brauchst.</p>
                 </div>
 
                 <div class="value-card">
-                    <h3>🔒 Sicherheit</h3>
-                    <p>Deine Daten sind heilig. Verschlüsselt, in Deutschland gespeichert, DSGVO-konform. Punkt.</p>
+                    <h3 data-i18n="about_val4_title">🔒 Sicherheit</h3>
+                    <p data-i18n="about_val4_desc">Deine Daten sind heilig. Verschlüsselt, in Deutschland gespeichert, DSGVO-konform. Punkt.</p>
                 </div>
 
                 <div class="value-card">
-                    <h3>💰 Faire Preise</h3>
-                    <p>Keine versteckten Gebühren. Keine Überraschungen. Transparente Preisgestaltung von Anfang an.</p>
+                    <h3 data-i18n="about_val5_title">💰 Faire Preise</h3>
+                    <p data-i18n="about_val5_desc">Keine versteckten Gebühren. Keine Überraschungen. Transparente Preisgestaltung von Anfang an.</p>
                 </div>
 
                 <div class="value-card">
-                    <h3>🇩🇪 Local First</h3>
-                    <p>Ich verstehe die deutschsprachigen Märkte. Lokale Unterstützung, lokale Serverstandorte, lokale
-                        Compliance.</p>
+                    <h3 data-i18n="about_val6_title">🇩🇪 Local First</h3>
+                    <p data-i18n="about_val6_desc">Ich verstehe die deutschsprachigen Märkte. Lokale Unterstützung, lokale Serverstandorte, lokale Compliance.</p>
                 </div>
             </div>
         </div>
 
         <!-- STATS -->
         <div class="stats">
-            <h2 class="section-title" style="color: white;">Coltivo heute</h2>
+            <h2 class="section-title" style="color: white;" data-i18n="about_stats_title">Coltivo heute</h2>
 
             <div class="stats-grid">
                 <div class="stat-item">
                     <h2>1</h2>
-                    <p>Person (ich 😄)</p>
+                    <p data-i18n="about_stat1_desc">Person (ich 😄)</p>
                 </div>
 
                 <div class="stat-item">
-                    <h2>3 Jahre</h2>
-                    <p>Entwicklung & Testing</p>
+                    <h2 data-i18n="about_stat2_label">3 Jahre</h2>
+                    <p data-i18n="about_stat2_desc">Entwicklung & Testing</p>
                 </div>
 
                 <div class="stat-item">
@@ -356,12 +363,12 @@
 
                 <div class="stat-item">
                     <h2>0€</h2>
-                    <p>Versteckte Gebühren</p>
+                    <p data-i18n="about_stat5_desc">Versteckte Gebühren</p>
                 </div>
 
                 <div class="stat-item">
                     <h2>24/7</h2>
-                    <p>Erreichbar für Support</p>
+                    <p data-i18n="about_stat6_desc">Erreichbar für Support</p>
                 </div>
             </div>
         </div>
@@ -369,16 +376,16 @@
         <!-- WARUM ICH -->
         <div
             style="max-width: 800px; margin: 80px auto; padding: 40px; background: white; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
-            <h2 style="color: #0d47a1; margin-bottom: 20px;">Warum solltest du Coltivo wählen?</h2>
-            <p style="color: #666; line-height: 1.8; margin-bottom: 15px;">
+            <h2 style="color: #0d47a1; margin-bottom: 20px;" data-i18n="about_why_title">Warum solltest du Coltivo wählen?</h2>
+            <p style="color: #666; line-height: 1.8; margin-bottom: 15px;" data-i18n="about_why_p1">
                 Weil ich nicht nur eine Software verkaufe, sondern ein Problem lösen möchte. Ich bin persönlich
                 investiert. Wenn dein Geschäft besser läuft durch Coltivo, freue ich mich.
             </p>
-            <p style="color: #666; line-height: 1.8; margin-bottom: 15px;">
+            <p style="color: #666; line-height: 1.8; margin-bottom: 15px;" data-i18n="about_why_p2">
                 Du bekommst nicht irgendeine Software von einem großen Konzern mit undurchschaubaren Zielen. Du bekommst
                 ein Produkt von jemandem, der die Schmerzen versteht, die er löst.
             </p>
-            <p style="color: #666; line-height: 1.8;">
+            <p style="color: #666; line-height: 1.8;" data-i18n="about_why_p3">
                 Und wenn etwas nicht funktioniert? Du schreibst mir eine E-Mail, und ich antworte persönlich. Keine
                 Support-Tier, keine Warteschlange. Nur ehrliche, schnelle Hilfe.
             </p>
@@ -386,15 +393,15 @@
 
         <!-- CONTACT CTA -->
         <div class="contact-cta">
-            <h3>Lass uns reden</h3>
-            <p>Du hast Fragen zur Geschichte? Kritik? Ideen? Ich antworte auf jede E-Mail persönlich.</p>
-            <a href="contact.html" class="btn">Kontakt aufnehmen</a>
+            <h3 data-i18n="about_cta_title">Lass uns reden</h3>
+            <p data-i18n="about_cta_desc">Du hast Fragen zur Geschichte? Kritik? Ideen? Ich antworte auf jede E-Mail persönlich.</p>
+            <a href="contact.html" class="btn" data-i18n="about_cta_btn">Kontakt aufnehmen</a>
         </div>
     </div>
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Coltivo. Alle Rechte vorbehalten. | <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
+        <p><span data-i18n="footer_copy">&copy; 2026 Coltivo. Alle Rechte vorbehalten.</span> | <a href="impressum.html" data-i18n="footer_imprint">Impressum</a> | <a href="datenschutz.html" data-i18n="footer_privacy">Datenschutz</a></p>
     </footer>
 
     <script src="script.js"></script>
