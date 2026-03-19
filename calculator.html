@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing Calculator - Coltivo</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="translations.js"></script>
     <style>
         .calc-container {
             max-width: 700px;
@@ -182,8 +183,17 @@
                 <li><a href="calculator.html" class="active">Pricing</a></li>
                 <li><a href="demo.html">Demo</a></li>
                 <li><a href="video.html">Tutorial</a></li>
-                <li><a href="about.html">Über mich</a></li>
-                <li><a href="contact.html">Kontakt</a></li>
+                <li><a href="about.html" data-i18n="nav_about">Über mich</a></li>
+                <li><a href="contact.html" data-i18n="nav_contact">Kontakt</a></li>
+                <li>
+                    <div class="lang-switcher">
+                        <button class="lang-btn" data-lang="de" onclick="setLang('de')">DE</button>
+                        <span class="lang-sep">|</span>
+                        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+                        <span class="lang-sep">|</span>
+                        <button class="lang-btn" data-lang="cs" onclick="setLang('cs')">CS</button>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
@@ -194,90 +204,90 @@
         
         <div class="calc-container">
             <div class="plan-info">
-                <div class="info-title">💡 Wie funktioniert es?</div>
-                Wähle die Anzahl deiner Container. Der Preis wird automatisch berechnet basierend auf unserem transparenten Preismodell.
+                <div class="info-title" data-i18n="calc_how_title">💡 Wie funktioniert es?</div>
+                <span data-i18n="calc_how_body">Wähle die Anzahl deiner Container. Der Preis wird automatisch berechnet basierend auf unserem transparenten Preismodell.</span>
             </div>
 
             <div style="margin-bottom: 40px;">
-                <h3 style="color: #0d47a1; margin-bottom: 20px;">Wähle deinen Plan</h3>
-                
+                <h3 style="color: #0d47a1; margin-bottom: 20px;" data-i18n="calc_choose_plan">Wähle deinen Plan</h3>
+
                 <div class="plan-grid">
                     <div class="plan-option selected" onclick="selectPlan(this, 'starter')">
                         <h4>Starter</h4>
-                        <p>bis 50 Container</p>
-                        <p style="color: #ff9800; font-weight: 600; margin-top: 10px;">€100/Monat</p>
+                        <p data-i18n="calc_starter_desc">bis 50 Container</p>
+                        <p style="color: #ff9800; font-weight: 600; margin-top: 10px;">€100<span data-i18n="calc_per_month">/Monat</span></p>
                     </div>
                     <div class="plan-option" onclick="selectPlan(this, 'pro')">
                         <h4>Pro</h4>
-                        <p>bis 200 Container</p>
-                        <p style="color: #ff9800; font-weight: 600; margin-top: 10px;">€400/Monat</p>
+                        <p data-i18n="calc_pro_desc">bis 200 Container</p>
+                        <p style="color: #ff9800; font-weight: 600; margin-top: 10px;">€400<span data-i18n="calc_per_month">/Monat</span></p>
                     </div>
                     <div class="plan-option" onclick="selectPlan(this, 'enterprise')">
                         <h4>Enterprise</h4>
-                        <p>Custom Lösung</p>
-                        <p style="color: #ff9800; font-weight: 600; margin-top: 10px;">Auf Anfrage</p>
+                        <p data-i18n="calc_enterprise_desc">Custom Lösung</p>
+                        <p style="color: #ff9800; font-weight: 600; margin-top: 10px;" data-i18n="calc_on_request">Auf Anfrage</p>
                     </div>
                 </div>
 
                 <div id="containerSlider" class="slider-container">
                     <div class="slider-label">
-                        <span>Anzahl Container</span>
+                        <span data-i18n="calc_num_containers">Anzahl Container</span>
                         <span id="containerCount">25</span>
                     </div>
                     <input type="range" id="containerInput" min="1" max="200" value="25" onchange="updatePrice()">
                 </div>
 
                 <div class="form-group">
-                    <label for="duration">Vertragslaufzeit</label>
+                    <label for="duration" data-i18n="calc_duration_label">Vertragslaufzeit</label>
                     <select id="duration" onchange="updatePrice()">
-                        <option value="1">1 Monat</option>
-                        <option value="3">3 Monate (-5% Rabatt)</option>
-                        <option value="6">6 Monate (-10% Rabatt)</option>
-                        <option value="12" selected>12 Monate (-15% Rabatt)</option>
+                        <option value="1" data-i18n="calc_1month">1 Monat</option>
+                        <option value="3" data-i18n="calc_3months">3 Monate (-5% Rabatt)</option>
+                        <option value="6" data-i18n="calc_6months">6 Monate (-10% Rabatt)</option>
+                        <option value="12" selected data-i18n="calc_12months">12 Monate (-15% Rabatt)</option>
                     </select>
                 </div>
 
-                <button class="btn" style="width: 100%; text-align: center; margin-top: 20px;" onclick="calculatePrice()">Preis berechnen</button>
+                <button class="btn" style="width: 100%; text-align: center; margin-top: 20px;" onclick="calculatePrice()" data-i18n="calc_calculate_btn">Preis berechnen</button>
             </div>
 
             <div id="result" class="calc-result">
-                <h3>Dein Coltivo Plan</h3>
+                <h3 data-i18n="calc_your_plan">Dein Coltivo Plan</h3>
                 <div class="calc-price" id="totalPrice">€0</div>
-                
+
                 <div class="breakdown">
                     <div class="breakdown-row">
                         <span id="planName">Starter Plan</span>
                         <span id="planPrice">€100</span>
                     </div>
                     <div class="breakdown-row">
-                        <span>Anzahl Container</span>
+                        <span data-i18n="calc_num_containers_br">Anzahl Container</span>
                         <span id="containerDisplay">25</span>
                     </div>
                     <div class="breakdown-row">
-                        <span>Vertragslaufzeit</span>
+                        <span data-i18n="calc_duration_br">Vertragslaufzeit</span>
                         <span id="durationDisplay">12 Monate</span>
                     </div>
                     <div class="breakdown-row">
-                        <span>Rabatt</span>
+                        <span data-i18n="calc_discount_br">Rabatt</span>
                         <span id="discountDisplay">-15%</span>
                     </div>
                     <div class="breakdown-row">
-                        <span>Gesamt für Laufzeit</span>
+                        <span data-i18n="calc_total_br">Gesamt für Laufzeit</span>
                         <span id="totalPriceBreakdown">€0</span>
                     </div>
                 </div>
 
-                <p style="margin-top: 20px;">✓ Inklusive Support, SSL, Backups, DSGVO-Konformität</p>
-                
+                <p style="margin-top: 20px;" data-i18n="calc_includes">✓ Inklusive Support, SSL, Backups, DSGVO-Konformität</p>
+
                 <div style="margin-top: 20px;">
-                    <a href="demo.html" class="btn" style="width: 100%; text-align: center;">24h Demo starten</a>
+                    <a href="demo.html" class="btn" style="width: 100%; text-align: center;" data-i18n="calc_demo_btn">24h Demo starten</a>
                 </div>
             </div>
         </div>
 
         <!-- FEATURES COMPARISON -->
         <div style="margin-top: 80px;">
-            <h2 class="section-title">Was ist in deinem Plan enthalten?</h2>
+            <h2 class="section-title" data-i18n="calc_whats_included">Was ist in deinem Plan enthalten?</h2>
             
             <div style="overflow-x: auto; max-width: 1000px; margin: 0 auto;">
                 <table style="width: 100%; border-collapse: collapse; color: #666;">
@@ -340,7 +350,7 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Coltivo. Alle Rechte vorbehalten. | <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
+        <p><span data-i18n="footer_copy">&copy; 2026 Coltivo. Alle Rechte vorbehalten.</span> | <a href="impressum.html" data-i18n="footer_imprint">Impressum</a> | <a href="datenschutz.html" data-i18n="footer_privacy">Datenschutz</a></p>
     </footer>
 
     <script>
@@ -379,48 +389,50 @@
         function calculatePrice() {
             const containerCount = parseInt(document.getElementById('containerInput').value);
             const duration = parseInt(document.getElementById('duration').value);
-            
+
             let basePrice = 0;
             let planName = '';
             let discountPercent = 0;
+            const lang = localStorage.getItem('lang') || 'de';
+            const locale = lang === 'en' ? 'en-US' : lang === 'cs' ? 'cs-CZ' : 'de-DE';
 
             if (containerCount <= 50) {
                 basePrice = 100;
-                planName = 'Starter (bis 50 Container)';
+                planName = t('calc_js_starter_plan');
                 selectedPlan = 'starter';
             } else if (containerCount <= 200) {
                 basePrice = 400;
-                planName = 'Pro (bis 200 Container)';
+                planName = t('calc_js_pro_plan');
                 selectedPlan = 'pro';
             } else {
                 document.getElementById('result').innerHTML = `
-                    <h3>Enterprise Plan</h3>
-                    <p style="font-size: 18px; margin-top: 20px;">Für über 200 Container kontaktieren Sie bitte unser Sales-Team.</p>
-                    <a href="contact.html" class="btn" style="margin-top: 20px;">Angebot anfordern</a>
+                    <h3>${t('calc_js_enterprise_title')}</h3>
+                    <p style="font-size: 18px; margin-top: 20px;">${t('calc_js_enterprise_msg')}</p>
+                    <a href="contact.html" class="btn" style="margin-top: 20px;">${t('calc_js_request_quote')}</a>
                 `;
                 document.getElementById('result').classList.add('show');
                 return;
             }
 
-            // Rabatt berechnen
             if (duration === 3) discountPercent = 5;
             else if (duration === 6) discountPercent = 10;
             else if (duration === 12) discountPercent = 15;
 
-            const monthlyTotal = basePrice;
-            const subtotal = monthlyTotal * duration;
+            const subtotal = basePrice * duration;
             const discount = subtotal * (discountPercent / 100);
             const total = subtotal - discount;
 
-            const durationText = duration === 1 ? '1 Monat' : `${duration} Monate`;
+            const durationText = duration === 1
+                ? `1 ${t('calc_js_month_singular')}`
+                : `${duration} ${t('calc_js_months_plural')}`;
 
             document.getElementById('planName').innerText = planName;
-            document.getElementById('planPrice').innerText = '€' + basePrice.toLocaleString('de-DE');
+            document.getElementById('planPrice').innerText = '€' + basePrice.toLocaleString(locale);
             document.getElementById('containerDisplay').innerText = containerCount;
             document.getElementById('durationDisplay').innerText = durationText;
-            document.getElementById('discountDisplay').innerText = discountPercent > 0 ? `-${discountPercent}%` : 'Keine';
-            document.getElementById('totalPrice').innerText = '€' + total.toLocaleString('de-DE');
-            document.getElementById('totalPriceBreakdown').innerText = '€' + total.toLocaleString('de-DE');
+            document.getElementById('discountDisplay').innerText = discountPercent > 0 ? `-${discountPercent}%` : t('calc_no_discount');
+            document.getElementById('totalPrice').innerText = '€' + total.toLocaleString(locale);
+            document.getElementById('totalPriceBreakdown').innerText = '€' + total.toLocaleString(locale);
 
             document.getElementById('result').classList.add('show');
         }

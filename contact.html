@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontakt - Coltivo</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="translations.js"></script>
     <style>
         .contact-grid {
             display: grid;
@@ -90,16 +91,25 @@
                 <li><a href="calculator.html">Pricing</a></li>
                 <li><a href="demo.html">Demo</a></li>
                 <li><a href="video.html">Tutorial</a></li>
-                <li><a href="about.html">Über mich</a></li>
-                <li><a href="contact.html" class="active">Kontakt</a></li>
+                <li><a href="about.html" data-i18n="nav_about">Über mich</a></li>
+                <li><a href="contact.html" class="active" data-i18n="nav_contact">Kontakt</a></li>
+                <li>
+                    <div class="lang-switcher">
+                        <button class="lang-btn" data-lang="de" onclick="setLang('de')">DE</button>
+                        <span class="lang-sep">|</span>
+                        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+                        <span class="lang-sep">|</span>
+                        <button class="lang-btn" data-lang="cs" onclick="setLang('cs')">CS</button>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
 
     <!-- CONTACT SECTION -->
     <div class="container">
-        <h2 class="section-title">📞 Kontakt</h2>
-        <p style="text-align: center; color: #666; max-width: 700px; margin: 0 auto 40px; font-size: 16px;">
+        <h2 class="section-title" data-i18n="contact_title">📞 Kontakt</h2>
+        <p style="text-align: center; color: #666; max-width: 700px; margin: 0 auto 40px; font-size: 16px;" data-i18n="contact_intro">
             Fragen? Feedback? Feature-Request? Ich antworte persönlich auf jede Nachricht. Es gibt kein
             Support-Ticket-System - direkt zu mir.
         </p>
@@ -108,17 +118,16 @@
             <!-- CONTACT FORM -->
             <div>
                 <div id="successMessage" class="success-message">
-                    <h4>✅ Danke für deine Nachricht!</h4>
-                    <p>Ich lese jede E-Mail persönlich und antworte so schnell wie möglich. Normalerweise innerhalb von
-                        24 Stunden.</p>
+                    <h4 data-i18n="contact_success_title">✅ Danke für deine Nachricht!</h4>
+                    <p data-i18n="contact_success_body">Ich lese jede E-Mail persönlich und antworte so schnell wie möglich. Normalerweise innerhalb von 24 Stunden.</p>
                 </div>
 
                 <div class="contact-form">
-                    <h3>Schreib mir</h3>
+                    <h3 data-i18n="contact_form_title">Schreib mir</h3>
 
                     <form onsubmit="submitContact(event)" action="https://formspree.io/f/xvgeepro" method="POST">
                         <div class="form-group">
-                            <label for="contactName">Dein Name *</label>
+                            <label for="contactName" data-i18n="contact_label_name">Dein Name *</label>
                             <input type="text" id="contactName" name="name" required>
                         </div>
 
@@ -128,23 +137,24 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="contactCompany">Unternehmen (optional)</label>
+                            <label for="contactCompany" data-i18n="contact_label_company">Unternehmen (optional)</label>
                             <input type="text" id="contactCompany" name="company">
                         </div>
 
                         <div class="form-group">
-                            <label for="contactSubject">Betreff *</label>
+                            <label for="contactSubject" data-i18n="contact_label_subject">Betreff *</label>
                             <input type="text" id="contactSubject" name="subject" required
                                 placeholder="z.B. Feature Request, Bug Report, etc.">
                         </div>
 
                         <div class="form-group">
-                            <label for="contactMessage">Nachricht *</label>
+                            <label for="contactMessage" data-i18n="contact_label_message">Nachricht *</label>
                             <textarea id="contactMessage" name="message" rows="6" required
+                                data-i18n-placeholder="contact_ph_message"
                                 placeholder="Lass mich wissen wie ich dir helfen kann..."></textarea>
                         </div>
 
-                        <button type="submit" class="btn" style="width: 100%; text-align: center;">Senden</button>
+                        <button type="submit" class="btn" style="width: 100%; text-align: center;" data-i18n="contact_send_btn">Senden</button>
                     </form>
                 </div>
             </div>
@@ -152,9 +162,9 @@
             <!-- CONTACT INFO -->
             <div class="contact-info">
                 <div class="info-box">
-                    <h3>📧 E-Mail</h3>
+                    <h3 data-i18n="contact_email_label">📧 E-Mail</h3>
                     <p>
-                        <strong>Support & Allgemein:</strong><br>
+                        <strong data-i18n="contact_email_support">Support & Allgemein:</strong><br>
                         <a href="mailto:hello@coltivo.de">hello@coltivo.de</a><br><br>
                         <strong>Support:</strong><br>
                         <a href="mailto:support@coltivo.de">support@coltivo.de</a><br><br>
@@ -162,23 +172,21 @@
                 </div>
 
                 <div class="info-box">
-                    <h3>📍 Standort</h3>
+                    <h3 data-i18n="contact_location_label">📍 Standort</h3>
                     <p>
                         <strong>Coltivo</strong><br>
-                        Augsburg, Deutschland 🇩🇪<br><br>
-                        Made in Germany. Mit Liebe zu Details.
+                        <span data-i18n-html="contact_location_body">Augsburg, Deutschland 🇩🇪<br><br>Made in Germany. Mit Liebe zu Details.</span>
                     </p>
                 </div>
 
                 <div class="info-box">
-                    <h3>⏰ Verfügbarkeit</h3>
+                    <h3 data-i18n="contact_avail_label">⏰ Verfügbarkeit</h3>
                     <p>
-                        <strong>E-Mail Support:</strong><br>
+                        <strong data-i18n="contact_avail_email">E-Mail Support:</strong><br>
                         Mo-Fr: 9:00 - 18:00 CET<br>
-                        Sa-So: Emails werden gelesen, Antworte am Montag<br><br>
-                        <strong>Notfall:</strong><br>
-                        Support für deine Web App auf <a href="https://app.coltivo.de"
-                            target="_blank">app.coltivo.de</a>
+                        <span data-i18n="contact_avail_weekend">Sa-So: Emails werden gelesen, Antworte am Montag</span><br><br>
+                        <strong data-i18n="contact_avail_emergency">Notfall:</strong><br>
+                        <span data-i18n="contact_avail_emergency_body">Support für deine Web App auf</span> <a href="https://app.coltivo.de" target="_blank">app.coltivo.de</a>
                     </p>
                 </div>
 
@@ -198,18 +206,18 @@
 
         <!-- LEGAL -->
         <div style="margin-top: 80px; padding: 40px; background: #f5f5f5; border-radius: 8px; text-align: center;">
-            <h3 style="color: #0d47a1; margin-bottom: 15px;">Rechtliche Informationen</h3>
+            <h3 style="color: #0d47a1; margin-bottom: 15px;" data-i18n="contact_legal_title">Rechtliche Informationen</h3>
             <p style="color: #666; margin-bottom: 15px;">
-                <strong>Impressum:</strong> Lubos Novy | Augsburg, Deutschland<br>
-                <strong>USt-ID:</strong> [wird aktualisiert]<br>
-                <strong>Datenschutz:</strong> <a href="datenschutz.html" style="color: #ff9800;">Datenschutzerklärung</a>
+                <strong data-i18n="contact_legal_imprint">Impressum:</strong> Lubos Novy | Augsburg, Deutschland<br>
+                <strong data-i18n="contact_legal_vat">USt-ID:</strong> [wird aktualisiert]<br>
+                <strong data-i18n="contact_legal_privacy">Datenschutz:</strong> <a href="datenschutz.html" style="color: #ff9800;" data-i18n="contact_legal_privacy_link">Datenschutzerklärung</a>
             </p>
         </div>
     </div>
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Coltivo. Alle Rechte vorbehalten. | <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
+        <p><span data-i18n="footer_copy">&copy; 2026 Coltivo. Alle Rechte vorbehalten.</span> | <a href="impressum.html" data-i18n="footer_imprint">Impressum</a> | <a href="datenschutz.html" data-i18n="footer_privacy">Datenschutz</a></p>
     </footer>
 
     <script>

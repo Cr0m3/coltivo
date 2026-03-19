@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Tutorial - Coltivo</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="translations.js"></script>
     <style>
         .video-container {
             max-width: 900px;
@@ -104,45 +105,54 @@
                 <li><a href="calculator.html">Pricing</a></li>
                 <li><a href="demo.html">Demo</a></li>
                 <li><a href="video.html" class="active">Tutorial</a></li>
-                <li><a href="about.html">Über mich</a></li>
-                <li><a href="contact.html">Kontakt</a></li>
+                <li><a href="about.html" data-i18n="nav_about">Über mich</a></li>
+                <li><a href="contact.html" data-i18n="nav_contact">Kontakt</a></li>
+                <li>
+                    <div class="lang-switcher">
+                        <button class="lang-btn" data-lang="de" onclick="setLang('de')">DE</button>
+                        <span class="lang-sep">|</span>
+                        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+                        <span class="lang-sep">|</span>
+                        <button class="lang-btn" data-lang="cs" onclick="setLang('cs')">CS</button>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
 
     <!-- VIDEO SECTION -->
     <div class="container">
-        <h2 class="section-title">🎥 So funktioniert Coltivo</h2>
-        
+        <h2 class="section-title" data-i18n="video_title">🎥 So funktioniert Coltivo</h2>
+
         <div class="video-container">
             <div class="video-player" style="background: linear-gradient(135deg, #0d47a1, #1e7e34);">
                 <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:white;text-align:center;padding:40px;">
                     <div style="font-size:64px;margin-bottom:20px;">🎬</div>
-                    <h3 style="font-size:28px;margin:0 0 12px;font-weight:700;">Video kommt bald</h3>
-                    <p style="font-size:16px;opacity:0.85;max-width:420px;line-height:1.6;margin:0 0 28px;">Wir arbeiten gerade an einem ausführlichen Tutorial-Video. In der Zwischenzeit kannst du Coltivo einfach direkt ausprobieren!</p>
-                    <a href="demo.html" style="background:#ff6b35;color:white;padding:14px 32px;border-radius:50px;text-decoration:none;font-weight:700;font-size:16px;box-shadow:0 4px 15px rgba(0,0,0,0.3);">24h Demo starten →</a>
+                    <h3 style="font-size:28px;margin:0 0 12px;font-weight:700;" data-i18n="video_coming_soon_title">Video kommt bald</h3>
+                    <p style="font-size:16px;opacity:0.85;max-width:420px;line-height:1.6;margin:0 0 28px;" data-i18n="video_coming_soon_body">Wir arbeiten gerade an einem ausführlichen Tutorial-Video. In der Zwischenzeit kannst du Coltivo einfach direkt ausprobieren!</p>
+                    <a href="demo.html" style="background:#ff6b35;color:white;padding:14px 32px;border-radius:50px;text-decoration:none;font-weight:700;font-size:16px;box-shadow:0 4px 15px rgba(0,0,0,0.3);" data-i18n="video_coming_soon_btn">24h Demo starten →</a>
                 </div>
             </div>
-            
+
             <div class="video-info">
-                <h2>Coltivo in 5 Minuten erklärt</h2>
-                
+                <h2 data-i18n="video_info_title">Coltivo in 5 Minuten erklärt</h2>
+
                 <div class="video-meta">
-                    <span>📺 5:23 Minuten</span>
-                    <span>🇩🇪 Deutsch</span>
-                    <span>⭐ Für Anfänger</span>
+                    <span>📺 5:23 min</span>
+                    <span data-i18n="video_meta_lang">🇩🇪 Deutsch</span>
+                    <span data-i18n="video_meta_level">⭐ Für Anfänger</span>
                 </div>
 
-                <p>In diesem Video zeigen wir dir Schritt-für-Schritt, wie Coltivo funktioniert. Von der Anmeldung bis zur ersten Routen-Optimierung.</p>
+                <p data-i18n="video_info_desc">In diesem Video zeigen wir dir Schritt-für-Schritt, wie Coltivo funktioniert. Von der Anmeldung bis zur ersten Routen-Optimierung.</p>
 
                 <div class="video-steps">
-                    <h3>📋 Das Video deckt folgende Punkte ab:</h3>
+                    <h3 data-i18n="video_steps_title">📋 Das Video deckt folgende Punkte ab:</h3>
                     <ol>
-                        <li><strong>Dashboard verstehen</strong> - Überblick über alle deine Container in Echtzeit</li>
-                        <li><strong>Container hinzufügen</strong> - Neue Container registrieren in 2 Minuten</li>
-                        <li><strong>Team-Management</strong> - Fahrer und Team-Mitglieder hinzufügen</li>
-                        <li><strong>Route-Optimierung</strong> - Wie die AI die besten Routen findet</li>
-                        <li><strong>Reports & Analytics</strong> - Daten verstehen und exportieren</li>
+                        <li data-i18n-html="video_step1"><strong>Dashboard verstehen</strong> - Überblick über alle deine Container in Echtzeit</li>
+                        <li data-i18n-html="video_step2"><strong>Container hinzufügen</strong> - Neue Container registrieren in 2 Minuten</li>
+                        <li data-i18n-html="video_step3"><strong>Team-Management</strong> - Fahrer und Team-Mitglieder hinzufügen</li>
+                        <li data-i18n-html="video_step4"><strong>Route-Optimierung</strong> - Wie die AI die besten Routen findet</li>
+                        <li data-i18n-html="video_step5"><strong>Reports & Analytics</strong> - Daten verstehen und exportieren</li>
                     </ol>
                 </div>
             </div>
@@ -151,46 +161,46 @@
         <!-- FAQ SECTION -->
         <div class="faq-section">
             <div style="max-width: 900px; margin: 0 auto;">
-                <h2 class="section-title">❓ Häufige Fragen</h2>
+                <h2 class="section-title" data-i18n="video_faq_title">❓ Häufige Fragen</h2>
 
                 <div class="faq-item">
-                    <h4 onclick="toggleFaq(this)">Muss ich einen Videokurs machen bevor ich Coltivo nutze?</h4>
-                    <div class="faq-answer">
+                    <h4 onclick="toggleFaq(this)" data-i18n="video_faq1_q">Muss ich einen Videokurs machen bevor ich Coltivo nutze?</h4>
+                    <div class="faq-answer" data-i18n="video_faq1_a">
                         Nein! Die Software ist intuitiv designed. Das Video ist optional für schnelle Orientierung. Die meisten Nutzer verstehen sie direkt.
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <h4 onclick="toggleFaq(this)">Gibt es Trainingsressourcen?</h4>
-                    <div class="faq-answer">
+                    <h4 onclick="toggleFaq(this)" data-i18n="video_faq2_q">Gibt es Trainingsressourcen?</h4>
+                    <div class="faq-answer" data-i18n="video_faq2_a">
                         Ja! Neben dem Video: Dokumentation, FAQ, und direkter Support von mir. Ich antworte auf jede Frage persönlich.
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <h4 onclick="toggleFaq(this)">Kann ich das Dashboard vorher testen?</h4>
-                    <div class="faq-answer">
+                    <h4 onclick="toggleFaq(this)" data-i18n="video_faq3_q">Kann ich das Dashboard vorher testen?</h4>
+                    <div class="faq-answer" data-i18n="video_faq3_a">
                         Ja! Mit der 24h Demo bekommst du vollen Zugriff auf das echte Dashboard mit Demo-Containern.
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <h4 onclick="toggleFaq(this)">Wie lange dauert das Onboarding?</h4>
-                    <div class="faq-answer">
+                    <h4 onclick="toggleFaq(this)" data-i18n="video_faq4_q">Wie lange dauert das Onboarding?</h4>
+                    <div class="faq-answer" data-i18n="video_faq4_a">
                         Das hängt ab. Die meisten sind in 30-60 Minuten produktiv. Größere Teams können länger brauchen. Ich helfe gerne beim Setup.
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <h4 onclick="toggleFaq(this)">Wo finde ich mehr Dokumentation?</h4>
-                    <div class="faq-answer">
+                    <h4 onclick="toggleFaq(this)" data-i18n="video_faq5_q">Wo finde ich mehr Dokumentation?</h4>
+                    <div class="faq-answer" data-i18n="video_faq5_a">
                         In deinem Dashboard gibt es eine komplette Dokumentation. Plus: API-Docs, Integration-Guides, und Video-Tutorials.
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <h4 onclick="toggleFaq(this)">Gibt es Telefon-Support?</h4>
-                    <div class="faq-answer">
+                    <h4 onclick="toggleFaq(this)" data-i18n="video_faq6_q">Gibt es Telefon-Support?</h4>
+                    <div class="faq-answer" data-i18n="video_faq6_a">
                         Nicht offiziell, aber: Du kannst mich direkt anschreiben und bekommst schnelle Antwort. Oft schneller als Telefon!
                     </div>
                 </div>
@@ -200,7 +210,7 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Coltivo. Alle Rechte vorbehalten. | <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
+        <p><span data-i18n="footer_copy">&copy; 2026 Coltivo. Alle Rechte vorbehalten.</span> | <a href="impressum.html" data-i18n="footer_imprint">Impressum</a> | <a href="datenschutz.html" data-i18n="footer_privacy">Datenschutz</a></p>
     </footer>
 
     <script src="script.js"></script>

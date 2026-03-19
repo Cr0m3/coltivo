@@ -247,6 +247,40 @@ footer a {
     display: block;
 }
 
+/* LANGUAGE SWITCHER */
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.lang-btn {
+    background: none;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--dark);
+    padding: 3px 7px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    letter-spacing: 0.05em;
+}
+
+.lang-btn:hover,
+.lang-btn.active {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: rgba(255, 107, 53, 0.08);
+}
+
+.lang-sep {
+    color: var(--border);
+    font-size: 12px;
+    padding: 0 1px;
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .nav-links {
