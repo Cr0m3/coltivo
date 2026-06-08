@@ -5,31 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Über mich - Coltivo</title>
+    <meta name="description" content="Die Geschichte von Coltivo: Eine Solo-Mission von Lubos Novy für besseres Container-Management.">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Über mich - Coltivo">
+    <meta property="og:description" content="Die Geschichte von Coltivo: Eine Solo-Mission von Lubos Novy für besseres Container-Management.">
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📦</text></svg>">
     <link rel="stylesheet" href="styles.css">
     <script src="translations.js"></script>
     <style>
         .about-hero {
-            background: linear-gradient(135deg, #0d47a1 0%, #1e7e34 100%);
+            background: radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%), 
+                        linear-gradient(135deg, var(--dark-indigo) 0%, #064e3b 100%);
             color: white;
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
+            position: relative;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(to top, var(--light), transparent);
+            pointer-events: none;
         }
 
         .about-hero h1 {
-            font-size: 48px;
+            font-size: clamp(32px, 6vw, 48px);
             margin-bottom: 20px;
+            letter-spacing: -0.02em;
         }
 
         .about-hero p {
             font-size: 18px;
             max-width: 700px;
             margin: 0 auto;
-            opacity: 0.95;
+            opacity: 0.9;
+            font-weight: 300;
         }
 
         .founder-section {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1.2fr;
             gap: 60px;
             align-items: center;
             margin: 60px 0;
@@ -39,44 +61,49 @@
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #0d47a1, #1e7e34);
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 80px;
             margin: 0 auto;
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.25);
         }
 
         .founder-story h2 {
-            color: #0d47a1;
+            color: var(--dark);
             font-size: 28px;
             margin-bottom: 20px;
         }
 
         .founder-story p {
-            color: #666;
+            color: var(--text-muted);
             line-height: 1.8;
             margin-bottom: 15px;
+            font-size: 15px;
         }
 
         .story-highlight {
-            background: #e3f2fd;
-            border-left: 4px solid #ff9800;
+            background: rgba(99, 102, 241, 0.06);
+            border-left: 4px solid var(--accent);
             padding: 20px;
-            border-radius: 4px;
+            border-radius: 8px;
             margin: 30px 0;
-            color: #0d47a1;
+            color: var(--secondary);
+            font-size: 15px;
         }
 
         .values-section {
-            background: #f5f5f5;
-            padding: 60px 20px;
+            background: var(--light);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 80px 20px;
             margin: 60px 0;
         }
 
         .values-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             max-width: 1000px;
             margin: 40px auto;
@@ -85,19 +112,28 @@
         .value-card {
             background: white;
             padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            border-top: 4px solid #0d47a1;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border);
+            border-top: 4px solid var(--secondary);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
         }
 
         .value-card h3 {
-            color: #0d47a1;
+            color: var(--dark);
             margin-bottom: 15px;
+            font-size: 18px;
         }
 
         .value-card p {
-            color: #666;
+            color: var(--text-muted);
             line-height: 1.6;
+            font-size: 14px;
         }
 
         .timeline {
@@ -108,7 +144,7 @@
         .timeline-item {
             padding: 20px;
             margin-bottom: 20px;
-            border-left: 4px solid #ff9800;
+            border-left: 4px solid var(--accent);
             padding-left: 30px;
             position: relative;
         }
@@ -121,32 +157,39 @@
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background: #ff9800;
+            background: var(--accent);
             border: 3px solid white;
         }
 
         .timeline-item h4 {
-            color: #0d47a1;
+            color: var(--dark);
             margin-bottom: 8px;
+            font-size: 18px;
         }
 
         .timeline-item .year {
-            color: #ff9800;
+            color: var(--accent);
             font-weight: 600;
             font-size: 14px;
         }
 
         .timeline-item p {
-            color: #666;
+            color: var(--text-muted);
             margin-top: 10px;
+            font-size: 15px;
         }
 
         .stats {
-            background: linear-gradient(135deg, #0d47a1, #1e7e34);
+            background: linear-gradient(135deg, var(--dark-indigo), var(--primary-hover));
             color: white;
-            padding: 60px 20px;
+            padding: 80px 20px;
             margin: 60px 0;
             text-align: center;
+            border-radius: 24px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.15);
         }
 
         .stats-grid {
@@ -158,38 +201,45 @@
         }
 
         .stat-item h2 {
-            font-size: 48px;
+            font-size: 44px;
             margin-bottom: 10px;
+            font-family: var(--font-headings);
+            letter-spacing: -0.02em;
         }
 
         .stat-item p {
             font-size: 14px;
             opacity: 0.9;
+            font-weight: 500;
         }
 
         .contact-cta {
             background: white;
-            padding: 40px;
-            border-radius: 8px;
+            padding: 50px 40px;
+            border-radius: 16px;
             text-align: center;
-            margin: 60px auto;
+            margin: 80px auto;
             max-width: 700px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border);
         }
 
         .contact-cta h3 {
-            color: #0d47a1;
+            color: var(--dark);
             margin-bottom: 15px;
+            font-size: 24px;
         }
 
         .contact-cta p {
-            color: #666;
-            margin-bottom: 20px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 15px;
         }
 
         @media (max-width: 768px) {
             .founder-section {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
 
             .founder-photo {
@@ -286,7 +336,7 @@
 
             <div class="timeline-item">
                 <div class="year">2025</div>
-                <h4>Route Optimization & AI</h4>
+                <h4 data-i18n="about_2025_title">Route Optimization & AI</h4>
                 <p data-i18n="about_2025_body">Entwicklung der automatischen Routen-Optimierung. Das sparte Kunden echtes Geld (bis zu 40%
                     Transportkosten). Huge Win.</p>
             </div>
@@ -352,13 +402,13 @@
                 </div>
 
                 <div class="stat-item">
-                    <h2>∞</h2>
-                    <p>Motivation & Passion</p>
+                    <h2 data-i18n="about_stat3_label">∞</h2>
+                    <p data-i18n="about_stat3_desc">Motivation & Passion</p>
                 </div>
 
                 <div class="stat-item">
-                    <h2>100%</h2>
-                    <p>Made in Germany</p>
+                    <h2 data-i18n="about_stat4_label">100%</h2>
+                    <p data-i18n="about_stat4_desc">Made in Germany</p>
                 </div>
 
                 <div class="stat-item">
@@ -375,8 +425,8 @@
 
         <!-- WARUM ICH -->
         <div
-            style="max-width: 800px; margin: 80px auto; padding: 40px; background: white; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
-            <h2 style="color: #0d47a1; margin-bottom: 20px;" data-i18n="about_why_title">Warum solltest du Coltivo wählen?</h2>
+            style="max-width: 800px; margin: 80px auto; padding: 40px; background: white; border-radius: 16px; box-shadow: var(--card-shadow); border: 1px solid var(--border);">
+            <h2 style="color: var(--dark); margin-bottom: 20px;" data-i18n="about_why_title">Warum solltest du Coltivo wählen?</h2>
             <p style="color: #666; line-height: 1.8; margin-bottom: 15px;" data-i18n="about_why_p1">
                 Weil ich nicht nur eine Software verkaufe, sondern ein Problem lösen möchte. Ich bin persönlich
                 investiert. Wenn dein Geschäft besser läuft durch Coltivo, freue ich mich.

@@ -5,12 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontakt - Coltivo</title>
+    <meta name="description" content="Haben Sie Fragen oder Feedback zu Coltivo? Kontaktieren Sie uns direkt und erhalten Sie persönliche Antworten.">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kontakt - Coltivo">
+    <meta property="og:description" content="Haben Sie Fragen oder Feedback zu Coltivo? Kontaktieren Sie uns direkt und erhalten Sie persönliche Antworten.">
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📦</text></svg>">
     <link rel="stylesheet" href="styles.css">
     <script src="translations.js"></script>
     <style>
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 0.8fr;
             gap: 40px;
             margin-top: 40px;
         }
@@ -18,8 +25,9 @@
         .contact-form {
             background: white;
             padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border);
         }
 
         .contact-info {
@@ -31,26 +39,29 @@
         .info-box {
             background: white;
             padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border-left: 4px solid #ff9800;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
         }
 
         .info-box h3 {
-            color: #0d47a1;
+            color: var(--dark);
             margin-bottom: 15px;
             display: flex;
             align-items: center;
             gap: 10px;
+            font-size: 18px;
         }
 
         .info-box p {
-            color: #666;
+            color: var(--text-muted);
             line-height: 1.8;
+            font-size: 15px;
         }
 
         .info-box a {
-            color: #ff9800;
+            color: var(--secondary);
             text-decoration: none;
             font-weight: 600;
         }
@@ -60,8 +71,9 @@
         }
 
         .contact-form h3 {
-            color: #0d47a1;
+            color: var(--dark);
             margin-bottom: 30px;
+            font-size: 24px;
         }
 
         @media (max-width: 768px) {
@@ -205,12 +217,12 @@
         </div>
 
         <!-- LEGAL -->
-        <div style="margin-top: 80px; padding: 40px; background: #f5f5f5; border-radius: 8px; text-align: center;">
-            <h3 style="color: #0d47a1; margin-bottom: 15px;" data-i18n="contact_legal_title">Rechtliche Informationen</h3>
-            <p style="color: #666; margin-bottom: 15px;">
+        <div style="margin-top: 80px; padding: 40px; background: var(--light); border: 1px solid var(--border); border-radius: 16px; text-align: center;">
+            <h3 style="color: var(--dark); margin-bottom: 15px;" data-i18n="contact_legal_title">Rechtliche Informationen</h3>
+            <p style="color: var(--text-muted); margin-bottom: 15px; font-size: 15px;">
                 <strong data-i18n="contact_legal_imprint">Impressum:</strong> Lubos Novy | Augsburg, Deutschland<br>
                 <strong data-i18n="contact_legal_vat">USt-ID:</strong> [wird aktualisiert]<br>
-                <strong data-i18n="contact_legal_privacy">Datenschutz:</strong> <a href="datenschutz.html" style="color: #ff9800;" data-i18n="contact_legal_privacy_link">Datenschutzerklärung</a>
+                <strong data-i18n="contact_legal_privacy">Datenschutz:</strong> <a href="datenschutz.html" style="color: var(--accent);" data-i18n="contact_legal_privacy_link">Datenschutzerklärung</a>
             </p>
         </div>
     </div>
@@ -221,17 +233,49 @@
     </footer>
 
     <script>
-        function submitContact(event) {
-            // Formspree handhabt das Formular
-            // Diese Funktion zeigt die Success-Message
-            setTimeout(() => {
-                document.getElementById('successMessage').classList.add('show');
-                event.target.reset();
+        async function submitContact(event) {
+            event.preventDefault();
+            const form = event.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerText;
+            submitBtn.disabled = true;
+            submitBtn.innerText = t('demo_js_creating');
 
-                setTimeout(() => {
-                    document.getElementById('successMessage').classList.remove('show');
-                }, 5000);
-            }, 100);
+            const payload = {
+                name: document.getElementById('contactName').value,
+                email: document.getElementById('contactEmail').value,
+                company: document.getElementById('contactCompany').value,
+                subject: document.getElementById('contactSubject').value,
+                message: document.getElementById('contactMessage').value
+            };
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    document.getElementById('successMessage').classList.add('show');
+                    form.reset();
+                    window.scrollTo({ top: document.getElementById('successMessage').offsetTop - 100, behavior: 'smooth' });
+                    setTimeout(() => {
+                        document.getElementById('successMessage').classList.remove('show');
+                    }, 5000);
+                } else {
+                    const result = await response.json();
+                    throw new Error(result.errors ? result.errors.map(e => e.message).join(', ') : 'Fehler beim Senden der Nachricht.');
+                }
+            } catch (err) {
+                alert('❌ ' + err.message);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerText = originalText;
+            }
         }
     </script>
     <script src="script.js"></script>

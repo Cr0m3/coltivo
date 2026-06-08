@@ -52,6 +52,34 @@ function initI18n() {
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.lang === lang);
     });
+
+    updateSEO();
+}
+
+function updateSEO() {
+    let currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    let pageKey = currentPage.split('.').shift() || 'home';
+    if (pageKey === 'index') pageKey = 'home';
+    if (pageKey === 'datenschutz') pageKey = 'privacy';
+
+    const titleKey = `meta_title_${pageKey}`;
+    const descKey = `meta_desc_${pageKey}`;
+
+    const translatedTitle = t(titleKey);
+    if (translatedTitle && translatedTitle !== titleKey) {
+        document.title = translatedTitle;
+    }
+
+    const translatedDesc = t(descKey);
+    if (translatedDesc && translatedDesc !== descKey) {
+        let metaDesc = document.querySelector('meta[name="description"]');
+        if (!metaDesc) {
+            metaDesc = document.createElement('meta');
+            metaDesc.name = 'description';
+            document.head.appendChild(metaDesc);
+        }
+        metaDesc.content = translatedDesc;
+    }
 }
 
 function setLang(lang) {
