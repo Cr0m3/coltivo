@@ -71,3 +71,9 @@ The `dev` branch is used for development; merge to `main` to deploy.
 - Mobile: < 768px
 
 Main breakpoint in CSS is `768px`.
+
+## MemPalace
+
+- **Wing:** `coltivo`
+- **Rooms:** `context`, `decisions`, `status`, `deployment`
+- **Tunnel:** linked to `coltivo-mobile` (same product)

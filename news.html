@@ -4,52 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News & Updates - Coltivo</title>
+    <meta name="description" content="Erfahren Sie das Neueste über Coltivo: Neue Features, API-Updates und Verbesserungen.">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="News & Updates - Coltivo">
+    <meta property="og:description" content="Erfahren Sie das Neueste über Coltivo: Neue Features, API-Updates und Verbesserungen.">
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📦</text></svg>">
     <link rel="stylesheet" href="styles.css">
     <script src="translations.js"></script>
     <style>
         .news-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
 
         .news-card {
             background: white;
-            border-radius: 8px;
+            border-radius: 16px;
             padding: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 4px solid #ff9800;
-            animation: fadeIn 0.6s ease;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border-left: 4px solid var(--accent);
+            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            border-top: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
         }
 
         .news-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            box-shadow: var(--hover-shadow);
+            border-color: rgba(99, 102, 241, 0.2);
         }
 
         .news-date {
-            color: #ff9800;
+            color: var(--accent);
             font-weight: 600;
             margin-bottom: 10px;
             font-size: 14px;
         }
 
         .news-card h3 {
-            color: #0d47a1;
+            color: var(--dark);
             margin-bottom: 15px;
             font-size: 20px;
         }
 
         .news-card p {
-            color: #666;
+            color: var(--text-muted);
             line-height: 1.8;
+            font-size: 15px;
         }
 
         .badge {
             display: inline-block;
             padding: 6px 12px;
-            background: #ff9800;
+            background: var(--accent);
             color: white;
             border-radius: 20px;
             font-size: 12px;
@@ -58,12 +70,11 @@
         }
 
         .badge.feature {
-            background: #1e7e34;
+            background: var(--primary);
         }
 
         .badge.bugfix {
-            background: #ffc107;
-            color: #333;
+            background: var(--secondary);
         }
     </style>
 </head>
@@ -100,56 +111,56 @@
         <div class="news-grid">
             <div class="news-card">
                 <div class="news-date" data-i18n="news_date1">10. März 2026</div>
-                <h3>Website Launch 🚀</h3>
+                <h3 data-i18n="news_item1_title">Website Launch 🚀</h3>
                 <p data-i18n="news_item1_body">Coltivo ist offiziell live! Marketing-Website online, 24h Demo verfügbar, und erste Kunden können testen. Großer Tag für das Projekt!</p>
                 <span class="badge feature">Milestone</span>
             </div>
 
             <div class="news-card">
                 <div class="news-date" data-i18n="news_date2">8. März 2026</div>
-                <h3>Route Optimization v2.0</h3>
+                <h3 data-i18n="news_item2_title">Route Optimization v2.0</h3>
                 <p data-i18n="news_item2_body">Verbesserte Algorithmen für Routen-Optimierung. Kunden sparen jetzt im Durchschnitt 40% Transport-Kosten. Performance-Boost!</p>
                 <span class="badge feature">Feature</span>
             </div>
 
             <div class="news-card">
                 <div class="news-date" data-i18n="news_date3">5. März 2026</div>
-                <h3>Mobile App iOS Release</h3>
+                <h3 data-i18n="news_item3_title">Mobile App iOS Release</h3>
                 <p data-i18n="news_item3_body">Coltivo App für iPhone ist jetzt im App Store verfügbar. Verwalte deine Container von unterwegs. Android kommt nächste Woche!</p>
                 <span class="badge feature">Feature</span>
             </div>
 
             <div class="news-card">
                 <div class="news-date" data-i18n="news_date4">1. März 2026</div>
-                <h3>Analytics Dashboard Update</h3>
+                <h3 data-i18n="news_item4_title">Analytics Dashboard Update</h3>
                 <p data-i18n="news_item4_body">Neues Dashboard mit besseren Visualisierungen. Echtzeit-Reports, Trend-Analysen, und Custom-Dashboard Layouts für deine Bedürfnisse.</p>
                 <span class="badge feature">Feature</span>
             </div>
 
             <div class="news-card">
                 <div class="news-date" data-i18n="news_date5">25. Februar 2026</div>
-                <h3>API v1.1 Release</h3>
+                <h3 data-i18n="news_item5_title">API v1.1 Release</h3>
                 <p data-i18n="news_item5_body">REST API erweitert. Webhooks, besseres Error Handling, und erweiterte Filtering-Optionen. Dokumentation aktualisiert.</p>
                 <span class="badge feature">Update</span>
             </div>
 
             <div class="news-card">
                 <div class="news-date" data-i18n="news_date6">20. Februar 2026</div>
-                <h3>Team Collaboration Features</h3>
+                <h3 data-i18n="news_item6_title">Team Collaboration Features</h3>
                 <p data-i18n="news_item6_body">Neue Funktionen für Team-Zusammenarbeit: Live Notifications, Team Chats, Task Assignment. Einfacher zusammenarbeiten.</p>
                 <span class="badge feature">Feature</span>
             </div>
 
             <div class="news-card">
                 <div class="news-date" data-i18n="news_date7">15. Februar 2026</div>
-                <h3>Performance Improvements</h3>
+                <h3 data-i18n="news_item7_title">Performance Improvements</h3>
                 <p data-i18n="news_item7_body">Database Optimizations durchgeführt. Dashboard lädt jetzt 35% schneller. Queries sind optimiert für große Datasets.</p>
                 <span class="badge bugfix">Optimization</span>
             </div>
 
             <div class="news-card">
                 <div class="news-date" data-i18n="news_date8">10. Februar 2026</div>
-                <h3>DSGVO Compliance</h3>
+                <h3 data-i18n="news_item8_title">DSGVO Compliance</h3>
                 <p data-i18n="news_item8_body">Vollständige DSGVO-Konformität zertifiziert. Datenexport, Recht auf Vergessenwerden, alles korrekt implementiert.</p>
                 <span class="badge bugfix">Compliance</span>
             </div>

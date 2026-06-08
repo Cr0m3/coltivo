@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>24h Demo - Coltivo</title>
+    <meta name="description" content="Testen Sie Coltivo 24 Stunden lang kostenlos mit vollem Funktionszugriff. Keine Kreditkarte erforderlich.">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="24h Demo - Coltivo">
+    <meta property="og:description" content="Testen Sie Coltivo 24 Stunden lang kostenlos mit vollem Funktionszugriff. Keine Kreditkarte erforderlich.">
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📦</text></svg>">
     <link rel="stylesheet" href="styles.css">
     <script src="translations.js"></script>
     <style>
@@ -12,39 +19,41 @@
             margin: 0 auto;
             background: white;
             padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border);
         }
 
         .demo-container h2 {
-            color: #0d47a1;
+            color: var(--dark);
             margin-bottom: 10px;
             text-align: center;
         }
 
         .demo-container .subtitle {
             text-align: center;
-            color: #666;
+            color: var(--text-muted);
             margin-bottom: 30px;
             font-size: 14px;
         }
 
         .badge-demo {
-            background: #fff3cd;
-            border: 1px solid #ffc107;
-            color: #856404;
+            background: rgba(249, 115, 22, 0.06);
+            border: 1px solid rgba(249, 115, 22, 0.25);
+            color: var(--accent-hover);
             padding: 12px;
-            border-radius: 4px;
+            border-radius: 8px;
             margin-bottom: 25px;
             text-align: center;
             font-weight: 600;
+            font-size: 14px;
         }
 
         .credentials-box {
-            background: #f8f9fa;
-            border: 1px solid #dee2e6;
+            background: var(--light);
+            border: 1px solid var(--border);
             padding: 20px;
-            border-radius: 4px;
+            border-radius: 8px;
             margin-top: 15px;
             font-family: monospace;
             font-size: 14px;
@@ -56,7 +65,7 @@
             align-items: center;
             margin-bottom: 15px;
             padding-bottom: 15px;
-            border-bottom: 1px solid #dee2e6;
+            border-bottom: 1px solid var(--border);
         }
 
         .credentials-row:last-child {
@@ -66,26 +75,28 @@
         }
 
         .credentials-label {
-            color: #666;
+            color: var(--text-muted);
             font-weight: 600;
         }
 
         .credentials-value {
             background: white;
             padding: 8px 12px;
-            border-radius: 4px;
-            color: #0d47a1;
+            border-radius: 6px;
+            color: var(--secondary);
             font-weight: 600;
+            border: 1px solid var(--border);
         }
 
         .timer {
-            background: linear-gradient(135deg, #ff6b6b, #ff9800);
+            background: linear-gradient(135deg, #ef4444, var(--accent));
             color: white;
-            padding: 15px;
-            border-radius: 4px;
+            padding: 16px;
+            border-radius: 8px;
             text-align: center;
             margin-top: 20px;
-            font-weight: 600;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.2);
         }
 
         .benefits-grid {
@@ -97,34 +108,43 @@
 
         .benefit-item {
             background: white;
-            padding: 20px;
-            border-radius: 8px;
+            padding: 24px 20px;
+            border-radius: 12px;
             text-align: center;
-            border: 1px solid #eee;
+            border: 1px solid var(--border);
+            box-shadow: var(--card-shadow);
+            transition: all 0.25s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--hover-shadow);
         }
 
         .benefit-item h4 {
-            color: #0d47a1;
+            color: var(--dark);
             margin-bottom: 8px;
+            font-size: 16px;
         }
 
         .benefit-item p {
-            color: #666;
-            font-size: 14px;
+            color: var(--text-muted);
+            font-size: 13px;
         }
 
         .required-field {
-            color: #ff6b6b;
+            color: #ef4444;
         }
 
         .form-note {
-            background: #e3f2fd;
-            border-left: 4px solid #0d47a1;
-            padding: 15px;
-            border-radius: 4px;
-            margin-bottom: 20px;
-            color: #0d47a1;
+            background: rgba(99, 102, 241, 0.06);
+            border-left: 4px solid var(--secondary);
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            color: var(--secondary);
             font-size: 14px;
+            line-height: 1.6;
         }
     </style>
 </head>
@@ -328,12 +348,13 @@
             const email = document.getElementById('demoEmailInput').value;
             const company = document.getElementById('demoCompany').value;
             const phone = document.getElementById('demoPhone').value;
+            const containers = document.getElementById('demoMessage').value;
 
             try {
                 const response = await fetch(`${API_URL}/users/create-demo`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, email, company, phone }),
+                    body: JSON.stringify({ name, email, company, phone, containers, message: containers }),
                 });
 
                 const data = await response.json();
